@@ -169,7 +169,7 @@
         <div class="row pt-60 pb-60">
             <div class="col-lg-4 col-md-6">
                 <div class="pr-0 pr-lg-4">
-                    <img class="mb-25" src="{% static 'images/cele_logo.png' %}" style="width: 40%; height: auto;" alt="omotola cathedral">
+                    <img class="mb-25" src="{% static 'images/celestial_logo.png' %}" style="width: 40%; height: auto;" alt="omotola cathedral">
                     <p style="padding-bottom: 30px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore dolore magna aliquyam eratnonumy onsetetur</p>
                 
 
@@ -206,10 +206,10 @@
                 <div class="pl-0 pl-md-3 mt-5 mt-md-0">
                     <h4 class="font-weight-600 mb-20">Quick Links</h4>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="service.html">Service</a></li>
-                        <li><a href="team.html">Team</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'services' %}">Service</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -217,10 +217,10 @@
                 <div class="pl-0 pl-md-3 mt-5 mt-md-0">
                     <h4 class="font-weight-600 mb-20" style="visibility: hidden;">Social Links</h4>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="#!">Live Service</a></li>                       
-                        <li><a href="testimonials.html">Testimonies</a></li>
-                        <li><a href="blog.html">Blogs</a></li>
-                        <li><a href="#!">Gallery</a></li>
+                        <li><a href="#">Live Service</a></li>                       
+                        <li><a href="{% url 'testimonies' %}">Testimonies</a></li>
+                        <li><a href="#">Sermon Excerpts</a></li>
+                        <li><a href="{% url 'twelve-pillars' %}">The Twelve Pillars</a></li>
                     </ul>
                 </div>
             </div>
