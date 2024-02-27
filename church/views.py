@@ -66,7 +66,7 @@ def services(request):
 
 def twelvePillars(request):
     try:
-        pillar = Team.objects.all()
+        pillar = Team.objects.all().order_by('date_created')
         return render(request, "twelve-pillars.html", {"pillars": pillar})
     
     except Exception as ex:
