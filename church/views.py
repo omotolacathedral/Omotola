@@ -13,14 +13,14 @@ def home(request):
     try:
         event = Event.objects.first()
 
-        valid = event.date_created.strftime('%A') < datetime.now(timezone.utc).strftime('%A')
-        print(type(datetime.now(timezone.utc).strftime('%A')))
-        print(type(event.date_created.strftime('%A')))
-        print(event.date_created.strftime('%A'))
-        print(datetime.now(timezone.utc).strftime('%A'))
-        if valid:
-            event.service_display = None
-            event.save()
+        # valid = event.date_created.strftime('%A') < datetime.now(timezone.utc).strftime('%A')
+        # print(type(datetime.now(timezone.utc).strftime('%A')))
+        # print(type(event.date_created.strftime('%A')))
+        # print(event.date_created.strftime('%A'))
+        # print(datetime.now(timezone.utc).strftime('%A'))
+        # if valid:
+        #     event.service_display = None
+        #     event.save()
         return render(request, "index.html", {"event": event})
     
     except Exception as ex:
