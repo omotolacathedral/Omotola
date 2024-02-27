@@ -87,15 +87,20 @@ WSGI_APPLICATION = 'churchproject.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'omotolaCathedral',
+#         'USER': os.getenv("USER"),
+#         'PASSWORD': os.getenv("PASSWORD"),
+#         'HOST': 'localhost',
+#         'PORT': os.getenv("PORT"),
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'omotolaCathedral',
-        'USER': os.getenv("USER"),
-        'PASSWORD': os.getenv("PASSWORD"),
-        'HOST': 'localhost',
-        'PORT': os.getenv("PORT"),
-    }
+    'default': dj_database_url.parse('postgres://omotola_user:zfMi2qgzRoXAFEwq662HCutBlfEq44US@dpg-cneemlnsc6pc73efvteg-a.oregon-postgres.render.com/omotola')
 }
 
 
