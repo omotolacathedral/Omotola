@@ -3,6 +3,27 @@
 
 {% block content %}
 
+<!-- Modal -->
+<div class="modal" tabindex="-1" id="exampleModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: transparent; border: none;">
+            <div class="modal-header" style="border: none;">
+                <h5 class="modal-title" style="visibility: hidden;">Announcement</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #fff;"></button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://drive.google.com/file/d/1-SJUvYnGM-wv3dsqopSDhD6rQ3mtX0b7/preview" width="100%" height="480" allow="autoplay"></iframe>
+                <!-- <img src="https://drive.google.com/file/d/1-SJUvYnGM-wv3dsqopSDhD6rQ3mtX0b7/preview" width="100%" height="480" allow="autoplay" alt="" > -->
+            </div>
+            <div class="modal-footer" style="visibility: hidden;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <!-- start of banner -->
 <section class="banner bg-cover-bottom has-shapes bg-light-gray has-bg-brash bg-brash-bottom" style="background-image: url({% static 'images/brushes/banner.svg' %})" data-aos="fade-in" data-aos-delay="150">
     <div class="container h-100">
@@ -368,6 +389,40 @@
 </section>
 <!-- end section -->
 
+<!-- start of birthday-carousel -->
+<section class="section-padding overflow-hidden">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" data-aos="fade-left"> 
+                <div class="brand-carousel" style="margin: 20px;">
+                    <!-- {% for birthday in birthdays %} -->    <!-- data:image/jpg;base64,{{booking.hotel.hotel_viewText}}  width="100%" height="140px" style="border-radius: 5px; -->
+                    <!-- {% endfor %} -->
+                    <div class="brand-item d-flex align-items-center justify-content-center">  
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                    <div class="brand-item d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                    <div class="brand-item d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                    <div class="brand-item d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                    <div class="brand-item d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                    <div class="brand-item d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                    <div class="brand-item d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                    <div class="brand-item d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                    <div class="brand-item d-flex align-items-center justify-content-center">
+                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <br><br>
+<!-- end section -->
+
+
 <!-- start of testimonials-carousel -->
 <section class="section-padding pt-0 testimonials-section has-shapes">
     <div class="container">
@@ -454,6 +509,36 @@
     
 </section>
 <!-- end of testimonials-carousel -->
+
+
+
+<br><br><br>
+<div class="map" >
+    <div class="container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2989419415867!2d3.2502689762231363!3d6.609728005123316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9b918cd1cd1b%3A0xed97afe4b6c2ecc8!2sOmotola%20Central%20Parish!5e0!3m2!1sen!2sng!4v1699188521387!5m2!1sen!2sng" 
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.298162268123!2d3.255264013022626!3d6.609825275778488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9a808c563755%3A0x89787b800654fb83!2sCcc%20Omotola%20Ipaja!5e0!3m2!1sen!2sng!4v1709044254390!5m2!1sen!2sng" 
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
+        <!-- <div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=omotola%20cathedral,%20church%20bus-stop%20ipaja%20ayobo%20lagos+(Omotola%20Cathedral)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+            </iframe>
+        </div> -->
+    </div>
+</div>
+<br><br><br>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+    // $('#exampleModal').modal('toggle');
+    // $('#exampleModal').modal('show');
+    // $('#exampleModal').modal('hide');
+
+    $( document ).ready(function() {
+        $('#exampleModal').modal('show');
+        console.log( "ready!" );
+    });
+</script>
 
 
 {% endblock %}

@@ -6,6 +6,7 @@ from . models import *
 
 admin.site.register(Event)
 admin.site.register(Testimony)
+admin.site.register(Birthday)
 admin.site.register(DevotionalLetter)
 admin.site.register(PrayerRequest)
 admin.site.register(Office)

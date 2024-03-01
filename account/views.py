@@ -5,30 +5,109 @@ from . models import *
 from emailsend import OTGGenerator
 
 # Create your views here.
+def adminTestimony(request):
+    try:
+        return render(request, "admin_testimonies.html", {})
+    
+    except Exception as ex:
+        print(ex)
 
 
-def RegisterStaff(request):
+
+def newTestimony(request):
+    try:
+        return render(request, "admin_new_testimony.html", {})
+    
+    except Exception as ex:
+        print(ex)
+
+
+
+
+
+def adminTwelvePillar(request):
+    try:
+        return render(request, "admin_twelve_pillars.html", {})
+    
+    except Exception as ex:
+        print(ex)
+
+
+
+def newTwelvePillar(request):
+    try:
+        return render(request, "admin_new_twelve_pillars.html", {})
+    
+    except Exception as ex:
+        print(ex)
+
+
+
+
+
+def adminBirthday(request):
+    try:
+        return render(request, "admin_birthday.html", {})
+    
+    except Exception as ex:
+        print(ex)
+
+
+
+def newBirthday(request):
+    try:
+        return render(request, "admin_new_birthday.html", {})
+    
+    except Exception as ex:
+        print(ex)
+
+
+
+
+
+
+def adminEvent(request):
+    try:
+        return render(request, "admin_event.html", {})
+    
+    except Exception as ex:
+        print(ex)
+
+
+
+def newEvent(request):
+    try:
+        return render(request, "admin_new_event.html", {})
+    
+    except Exception as ex:
+        print(ex)
+
+
+
+
+
+def registerStaff(request):
     try:
         if request.method=='POST':
-            username = request.POST['username']
+            # username = request.POST['username']
             email = request.POST['email']
             password = request.POST['password']
             confirm_password = request.POST['confirm_password']
-            first_name = request.POST["first_name"]
-            last_name = request.POST["last_name"]
+            # first_name = request.POST["first_name"]
+            # last_name = request.POST["last_name"]
 
             if password==confirm_password:                                
-                if User.objects.filter(username=username).exists():
-                    messages.error(request, 'Username taken')
+                if User.objects.filter(email=email).exists():
+                    messages.error(request, 'Email taken')
                     return redirect("register")  
                 
                 else:
                     user = User.objects.create_user(
-                        username=username,
+                        # username=username,
                         email=email,  
                         password=password,
-                        first_name=first_name,
-                        last_name=last_name
+                        # first_name=first_name,
+                        # last_name=last_name
                         )
                     user.is_staff=True
                     user.save()
@@ -50,7 +129,7 @@ def RegisterStaff(request):
        
 
   
-def LoginStaff(request):
+def loginStaff(request):
     try:
         if request.method=='POST':
             username = request.POST['username']
@@ -82,7 +161,7 @@ def LoginStaff(request):
 
 
 
-def LogoutStaff(request):
+def logoutStaff(request):
     session_keys = list(request.session.keys())
     for key in session_keys:
         del request.session[key]
@@ -92,7 +171,7 @@ def LogoutStaff(request):
 
 
 
-def GetAllStaff(request):
+def getAllStaff(request):
     try:
         getallstaffs = User.objects.all()
         return render(request, "", {})                       #check  
@@ -103,7 +182,7 @@ def GetAllStaff(request):
 
 
 
-def GetById(request, id):
+def getById(request, id):
     try:
         getidstaff = User.objects.get(pk = id)
         return render(request, "", {})                       #check
@@ -114,7 +193,7 @@ def GetById(request, id):
 
 
 
-def DeleteStaff(request, id):
+def deleteStaff(request, id):
     try:
         deletestaff = User.objects.get(pk = id).delete()
 

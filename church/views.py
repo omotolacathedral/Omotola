@@ -13,14 +13,14 @@ def home(request):
     try:
         event = Event.objects.first()
 
-        # valid = event.date_created.strftime('%A') < datetime.now(timezone.utc).strftime('%A')
-        # print(type(datetime.now(timezone.utc).strftime('%A')))
-        # print(type(event.date_created.strftime('%A')))
-        # print(event.date_created.strftime('%A'))
-        # print(datetime.now(timezone.utc).strftime('%A'))
-        # if valid:
-        #     event.service_display = None
-        #     event.save()
+        date_created = event.date_created.strftime('%A')
+        current_date = datetime.now(timezone.utc).strftime('%A')
+
+        if date_created != current_date:
+            event.service_display = None
+            event.save()
+        
+        # birthday = Birthday.objects.all()
         return render(request, "index.html", {"event": event})
     
     except Exception as ex:
@@ -79,16 +79,7 @@ def fourCorners(request):
         return render(request, "four-corners.html")
     
     except Exception as ex:
-        print(ex)
-
-
-
-def adminHome(request):
-    try:
-        return render(request, "admin.html", {})
-    
-    except Exception as ex:
-        print(ex)   
+        print(ex)  
 
 
 

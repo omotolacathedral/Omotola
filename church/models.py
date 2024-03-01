@@ -26,6 +26,13 @@ class Testimony(models.Model):
 
 
 
+class Birthday(models.Model):
+    image = models.TextField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+
+
 class Office(models.Model):
     title = models.CharField(max_length=250)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)

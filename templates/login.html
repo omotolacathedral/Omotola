@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+    <!-- ** Plugins Needed for the Project ** -->    
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/slick/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/aos/aos.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{% static 'images/celestial_favicon.png' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/celestial_favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+
+    <!-- <div class="d-flex justify-content-center align-items-center signin-container" id="" style="width: 100%; height: 100vh;">
+        <div class="mx-auto" style="max-width:400px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+            <div class="p-3 p-sm-4 ">
+                <h2 class="text-center" style="margin-bottom: 50px;">Login</h2> 
+                <form method="POST" class="needs-validation row" novalidate>
+                    <div class="form-group mb-20 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="email">Email Address*</label>
+                        <input class="form-control shadow-none" type="email" id="email" required>
+                        <p class="font-weight-bold invalid-feedback">Your email is required!</p>
+                    </div>
+                    <div class="form-group mb-20 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="passwordSignIn">Password*</label>
+                        <input class="form-control shadow-none" type="password" id="passwordSignIn" required>
+                        <p class="font-weight-bold invalid-feedback">Your password is required!</p>
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary w-100" type="submit">Sign In</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <br><br><br> -->
+    
+    <div class="d-flex justify-content-center align-items-center signin-container" id="" style="width: 100%; margin-top: 50px;">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Register</button>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="d-flex justify-content-center align-items-center signin-container" id="" style="width: 100%; height: 75vh;">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                <div class="mx-auto" style="max-width:400px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+                    <div class="p-3 p-sm-4 ">
+                        <h2 class="text-center" style="margin-bottom: 50px;">Login</h2> 
+                        <form method="POST" class="needs-validation row" novalidate>
+                            <div class="form-group mb-20 col-12">
+                                <label class="text-black-200 h6 font-weight-600 mb-2" for="email">Email Address*</label>
+                                <input class="form-control shadow-none" type="email" id="email" required>
+                                <p class="font-weight-bold invalid-feedback">Your email is required!</p>
+                            </div>
+                            <div class="form-group mb-20 col-12">
+                                <label class="text-black-200 h6 font-weight-600 mb-2" for="passwordSignIn">Password*</label>
+                                <input class="form-control shadow-none" type="password" id="passwordSignIn" required>
+                                <p class="font-weight-bold invalid-feedback">Your password is required!</p>
+                            </div>
+                            <div class="form-group col-12">
+                                <button class="btn btn-primary w-100" type="submit">Sign In</button>
+
+                                <!-- <p style="text-align: center; margin-top: 30px;">Don't have an account? <a href="#">Sign Up</a></p> -->
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                <div class="mx-auto" style="max-width:400px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+                    <div class="p-3 p-sm-4 ">
+                        <h2 class="text-center" style="margin-bottom: 50px;">Register</h2> 
+                        <form method="POST" class="needs-validation row" novalidate>
+                            <div class="form-group mb-20 col-12">
+                                <label class="text-black-200 h6 font-weight-600 mb-2" for="email">Email Address*</label>
+                                <input class="form-control shadow-none" type="email" id="email" required>
+                                <p class="font-weight-bold invalid-feedback">Your email is required!</p>
+                            </div>
+                            <div class="form-group mb-20 col-12">
+                                <label class="text-black-200 h6 font-weight-600 mb-2" for="passwordSignIn">Password*</label>
+                                <input class="form-control shadow-none" type="password" id="passwordSignIn" required>
+                                <p class="font-weight-bold invalid-feedback">Your password is required!</p>
+                            </div>
+                            <div class="form-group mb-20 col-12">
+                                <label class="text-black-200 h6 font-weight-600 mb-2" for="confirmPasswordSignIn">Confirm Password*</label>
+                                <input class="form-control shadow-none" type="password" id="confirmPasswordSignIn" required>
+                                <p class="font-weight-bold invalid-feedback">Re-type your password!</p>
+                            </div>
+                            <div class="form-group col-12">
+                                <button class="btn btn-primary w-100" type="submit">Sign Up</button>
+
+                                <!-- <p style="text-align: center; margin-top: 30px;">Do you have an account? <a href="#">Sign In</a></p> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Plugins Needed for the Project -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="{% static 'plugins/jQuery/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+    <script src="{% static 'plugins/shuffle/shuffle.min.js' %}"></script>
+    <script src="{% static 'plugins/aos/aos.js' %}"></script>
+
+    <!-- Main Script -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

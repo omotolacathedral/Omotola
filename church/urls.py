@@ -11,7 +11,6 @@ urlpatterns = [
     path("four-corners/", views.fourCorners, name="four-corners"),
     path("twelve-pillars/", views.twelvePillars, name="twelve-pillars"),
 
-    path("admin-home/", views.adminHome, name="admin-home"),
     path("prayer-request", views.prayerRequest, name="prayer-request"),
     path("devotional-letter", views.devotionalLetter, name="devotional-letter"),
 
