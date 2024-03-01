@@ -52,7 +52,7 @@
 <header class="header-nav position-relative bg-light-gray">
     <div class="container">
         <nav class="navbar navbar-expand-xl navbar-light px-0">
-            <a class="navbar-brand p-0" href="index.html" style="margin-right: 0px; min-width: 120px; max-width: 200px;">
+            <a class="navbar-brand p-0" id="logo" href="{% url 'home' %}" style="margin-right: 0px; min-width: 120px; max-width: 200px;">
                 <img class="img-fluid" id="cele_logo" src="{% static 'images/logo.png' %}" style="width: 50%; height: auto;" alt="celestial">
             </a>
             <!-- logo -->
@@ -148,9 +148,11 @@
             <div class="col-lg-7 col-md-12">
                 <div class="text-center pb-60">
                     <h2 class="section-title">Join the beloved that partake in Our <strong>Daily Devotional Message</strong></h2>
-                    <form action="#" method="post" class="needs-validation mt-30" novalidate>
+                    <form action="{% url 'devotional-letter' %}" method="POST" class="needs-validation mt-30" novalidate>
+                        {% csrf_token %}
+
                         <div class="input-group">
-                            <input type="email" class="form-control bg-gray" placeholder="Your email address" required>
+                            <input type="email" class="form-control bg-gray" name="devotional_email" placeholder="Your email address" required>
                             <div class="input-group-append ml-0">
                                 <button type="submit" class="btn btn-primary"><svg width="31" height="16" viewBox="0 0 31 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30.7071 8.70808C31.0976 8.31756 31.0976 7.68439 30.7071 7.29387L24.3431 0.929909C23.9526 0.539384 23.3195 0.539384 22.9289 0.929909C22.5384 1.32043 22.5384 1.9536 22.9289 2.34412L28.5858 8.00098L22.9289 13.6578C22.5384 14.0484 22.5384 14.6815 22.9289 15.072C23.3195 15.4626 23.9526 15.4626 24.3431 15.072L30.7071 8.70808ZM0 9.00098H30V7.00098H0V9.00098Z" fill="white"/></svg></button>
                             </div>
@@ -170,7 +172,7 @@
         <div class="row pt-60 pb-60">
             <div class="col-lg-4 col-md-6">
                 <div class="pr-0 pr-lg-4">
-                    <img class="mb-25" src="{% static 'images/logo.png' %}" style="width: 40%; height: auto;" alt="omotola cathedral">
+                    <a href="{% url 'home' %}"><img class="mb-25" src="{% static 'images/logo.png' %}" style="width: 40%; height: auto;" alt="omotola cathedral"></a>
                     <p style="padding-bottom: 30px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore dolore magna aliquyam eratnonumy onsetetur</p>
                 
 
@@ -226,7 +228,11 @@
                 <div class="pl-0 pl-md-3 mt-5 mt-md-0">
                     <h4 class="font-weight-600 mb-20" style="visibility: hidden;">Social Links</h4>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="#">Live Service</a></li>                       
+                        {% if event.service_display %}
+                    <li><a href="{{event.service_display}}">Watch Live Service</a></li>
+                        {% else %}
+                        <li>No Live Service</li>
+                        {% endif %}                      
                         <li><a href="{% url 'testimonies' %}">Testimonies</a></li>
                         <li><a href="#">Sermon Excerpts</a></li>
                         <li><a href="{% url 'twelve-pillars' %}">The Twelve Pillars</a></li>
@@ -245,17 +251,19 @@
                         </div>
                     </form> -->
 
-                    <form action="" method="POST" class="needs-validation rounded shadow p-25" novalidate>
+                    <form action="{% url 'prayer-request' %}" method="POST" class="needs-validation rounded shadow p-25" novalidate>
+                        {% csrf_token %}
+
                         <div class="form-group mb-10">
-                            <input class="form-control shadow-none" type="text" placeholder="Full name" id="fname" required>
+                            <input class="form-control shadow-none" type="text" name="name" placeholder="Full name" id="fname" required>
                             <p class="font-weight-bold invalid-feedback">Your name is required!</p>
                         </div>
                         <div class="form-group mb-10">
-                            <input class="form-control shadow-none" type="email" placeholder="Email" id="email" required>
+                            <input class="form-control shadow-none" type="email" name="email" placeholder="Email" id="email" required>
                             <p class="font-weight-bold invalid-feedback">Your email is required!</p>
                         </div>
                         <div class="form-group mb-10">
-                            <textarea class="form-control shadow-none" name="Message" placeholder="Message" rows="2" id="message" required></textarea>
+                            <textarea class="form-control shadow-none" name="message" placeholder="Message" rows="2" id="message" required></textarea>
                             <p class="font-weight-bold invalid-feedback">Your prayer message is required!</p>
                         </div>
                         <button class="btn btn-primary w-100" type="submit">Send</button>

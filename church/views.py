@@ -87,22 +87,22 @@ def prayerRequest(request):
     try:
         if request.method=="POST":
             name = request.POST['name']
-            country = request.POST['country']
+            # country = request.POST['country']
             email = request.POST['email']
-            phone_number = request.POST['phone_no']
+            # phone_number = request.POST['phone_no']
             message = request.POST['message']
 
             prayer_request = PrayerRequest(
                 name=name,
-                country=country,
+                # country=country,
                 email=email,
-                phone_number=phone_number,
+                # phone_number=phone_number,
                 message=message
                 )
             prayer_request.save()
 
             OTGGenerator([email], "SUCCESSFUL SUBMISSION OF PRAYER REQUEST!!!", """We kindly inform you that your prayer request has been sent to the church for prior attention. Keep your faith steadfast in the Lord Jesus. God bless you.""")
-            return render(request, "index.html")
+            return redirect("home")
 
     except Exception as ex:
         print(ex)
@@ -112,7 +112,7 @@ def prayerRequest(request):
 def devotionalLetter(request):
     try:
         if request.method=="POST":
-            email = request.POST['newsletter_email']
+            email = request.POST['devotional_email']
 
             devotional_letter = DevotionalLetter(
                 email=email
@@ -120,7 +120,7 @@ def devotionalLetter(request):
             devotional_letter.save()
 
             OTGGenerator([email], "SUBSCRIBTION TO DEVOTIONAL LETTER!!!", """We kindly inform you that you have subscribe to our devotional letter for frequent biblical and spiritual devotions.""")
-            return render(request, "index.html")
+            return redirect("home")
 
     except Exception as ex:
         print(ex)

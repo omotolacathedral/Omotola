@@ -65,7 +65,7 @@ class PrayerRequest(models.Model):
     name  = models.CharField(max_length=250, null=True)
     country = models.CharField(max_length=250, null=True, blank=True)
     email = models.EmailField()
-    phone_number = models.CharField(max_length=15)
+    phone_number = models.CharField(max_length=15, null=True, blank=True)
     message = models.TextField()
 
     def __str__(self):
