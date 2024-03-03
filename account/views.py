@@ -146,7 +146,7 @@ def loginStaff(request):
                 email = request.session["email"]
 
                 OTGGenerator([email], "SUCCESSFUL LOGIN!!!", """We are pleased to notify you that you have successfully logged into your staff account on Omotola Cathedral. Please keep your login details safe. Thank you.""")
-                return redirect("home")
+                return redirect("adminTestimony")
             
             else:
                 messages.error(request, 'Incorrect username or password')

@@ -9,20 +9,6 @@
                 <div class="main-title">
                     <h3 class="m-0">Add New Testimony</h3>
                 </div>
-                <div class="header_more_tool">
-                    <div class="dropdown">
-                        <span class="dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown">
-                            <i class="ti-more-alt"></i>
-                        </span>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#"> <i class="ti-eye"></i> Action</a>
-                            <a class="dropdown-item" href="#"> <i class="ti-trash"></i> Delete</a>
-                            <a class="dropdown-item" href="#"> <i class="fas fa-edit"></i> Edit</a>
-                            <a class="dropdown-item" href="#"> <i class="ti-printer"></i> Print</a>
-                            <a class="dropdown-item" href="#"> <i class="fa fa-download"></i> Download</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="white_card_body">
@@ -32,27 +18,51 @@
             <div class="common_form">
                 <form action="#" method="POST">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="common_input mb_15">
-                                <input type="text" placeholder="Full Name" />
+                                <input class="form-control" type="text" placeholder="Full Name (e.g. Dr John Kola)" />
                             </div>
                         </div>
                      
                         <div class="col-lg-12">
                             <div class="common_input mb_15">
-                                <input type="text" placeholder="Testimony" />
+                                <textarea class="form-control" type="text" placeholder="Testimony message" rows="5" cols="7" style="border-color: silver;"></textarea>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="create_report_btn mt_30">
-                                <a href="#" class="btn_1 radius_btn d-block text-center">Save Testimony</a>
+                                <a href="javascript:void(0)" class="btn_1 radius_btn d-block text-center" onclick="toggleErrorAlert()">Save Testimony</a>
                             </div>
+                            
                         </div>
                     </div>
                 </form>
+                
+                <br><br>
+
+                <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <div class="alert alert-danger alert-dismissible fade hide" role="alert" id="errorAlert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function toggleErrorAlert(){
+
+        let errorAlert = document.getElementById("errorAlert");
+
+        errorAlert.style.display === "block"
+
+        console.log(errorAlert.style.display)
+    }
+</script>
 
 {% endblock %}

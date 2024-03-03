@@ -59,24 +59,13 @@
 
     <br><br><br> -->
     
-    <div class="d-flex justify-content-center align-items-center signin-container" id="" style="width: 100%; margin-top: 50px;">
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Login</button>
-            </li>
-            <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Register</button>
-            </li>
-        </ul>
-    </div>
-    
-    <div class="d-flex justify-content-center align-items-center signin-container" id="" style="width: 100%; height: 75vh;">
+    <div class="d-flex justify-content-center align-items-center signin-container" id="" style="width: 100%; height: 75vh;" style="background-image: url({% static 'images/a5.jpg' %});">
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                 <div class="mx-auto" style="max-width:400px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
                     <div class="p-3 p-sm-4 ">
                         <h2 class="text-center" style="margin-bottom: 50px;">Login</h2> 
-                        <form method="POST" class="needs-validation row" novalidate>
+                        <form action="{% url 'login' %}" method="POST" class="needs-validation row" novalidate>
                             <div class="form-group mb-20 col-12">
                                 <label class="text-black-200 h6 font-weight-600 mb-2" for="email">Email Address*</label>
                                 <input class="form-control shadow-none" type="email" id="email" required>
@@ -90,38 +79,7 @@
                             <div class="form-group col-12">
                                 <button class="btn btn-primary w-100" type="submit">Sign In</button>
 
-                                <!-- <p style="text-align: center; margin-top: 30px;">Don't have an account? <a href="#">Sign Up</a></p> -->
-
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                <div class="mx-auto" style="max-width:400px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
-                    <div class="p-3 p-sm-4 ">
-                        <h2 class="text-center" style="margin-bottom: 50px;">Register</h2> 
-                        <form method="POST" class="needs-validation row" novalidate>
-                            <div class="form-group mb-20 col-12">
-                                <label class="text-black-200 h6 font-weight-600 mb-2" for="email">Email Address*</label>
-                                <input class="form-control shadow-none" type="email" id="email" required>
-                                <p class="font-weight-bold invalid-feedback">Your email is required!</p>
-                            </div>
-                            <div class="form-group mb-20 col-12">
-                                <label class="text-black-200 h6 font-weight-600 mb-2" for="passwordSignIn">Password*</label>
-                                <input class="form-control shadow-none" type="password" id="passwordSignIn" required>
-                                <p class="font-weight-bold invalid-feedback">Your password is required!</p>
-                            </div>
-                            <div class="form-group mb-20 col-12">
-                                <label class="text-black-200 h6 font-weight-600 mb-2" for="confirmPasswordSignIn">Confirm Password*</label>
-                                <input class="form-control shadow-none" type="password" id="confirmPasswordSignIn" required>
-                                <p class="font-weight-bold invalid-feedback">Re-type your password!</p>
-                            </div>
-                            <div class="form-group col-12">
-                                <button class="btn btn-primary w-100" type="submit">Sign Up</button>
-
-                                <!-- <p style="text-align: center; margin-top: 30px;">Do you have an account? <a href="#">Sign In</a></p> -->
+                                <p style="text-align: center; margin-top: 30px;">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
                             </div>
                         </form>
                     </div>
@@ -129,26 +87,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Plugins Needed for the Project -->
