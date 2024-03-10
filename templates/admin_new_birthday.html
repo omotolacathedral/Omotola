@@ -12,22 +12,35 @@
             </div>
         </div>
         <div class="white_card_body">
-            <div class="thumb mb_30">
-                <img src="img/table.svg" alt class="img-fluid" />
-            </div>
+            
+            {% for message in messages %}
+                {% if message.tags != "success" %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong style="text-transform: capitalize;">{{user.username}}!</strong> {{message}}.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>    
+                {% else %}
+                    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                        <strong style="text-transform: capitalize;">{{user.username}}!</strong> {{message}}.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>    
+                {% endif %}
+            {% endfor %}
+
             <div class="common_form">
-                <form action="#" method="POST">
+                <form action="{% url 'new-birthday' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
                     <div class="row">
-                        
                         <div class="col-lg-12" style="margin-top: 10px;">
                             <!-- <div class="common_input mb_15"> -->
-                                <input type="file" placeholder="Image File" />
+                                <input type="file" name="birthday_image" id="birthday_image" placeholder="Image File" required />
                                 <p style="margin-top: 6px;">Designed Celebrant's Picture</p>
                             <!-- </div> -->
                         </div>
                         <div class="col-12">
                             <div class="create_report_btn mt_30">
-                                <a href="#" class="btn_1 radius_btn d-block text-center">Save Celebrant</a>
+                                <button class="btn_1 radius_btn d-block text-center form-control" type="submit">Save Celebrant</button>
                             </div>
                         </div>
                     </div>

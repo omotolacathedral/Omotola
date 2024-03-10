@@ -38,11 +38,11 @@
                                        
         <div id="masonry" class="row team-members">
 
-            <!-- {% for pillar in pillars %}
+            {% for pillar in pillars %}
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;developers&quot;]">
                 <div class="text-center mb-30">
                     <div class="team-image has-shapes d-inline-block mb-25">
-                        <img class="img-fluid rounded-circle" src="{% static 'images/chairman.png' %}" alt="" style="width: 90%; height: auto;">
+                        <img class="img-fluid rounded-circle" src="data:image/png;base64,{{pillar.image}}" alt="">
 
                         <div class="team-shapes">
                             <div class="shape-1 shape-xs bg-secondary rounded-circle"></div>
@@ -53,11 +53,10 @@
                     <h4 class="font-weight-bold mb-10">{{pillar.name}}</h4>
                     <p>{{pillar.office.title}}</p>
                 </div>
-                team item
             </div>
-            {% endfor %} -->
+            {% endfor %}
             
-            <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;developers&quot;]">
+            <!-- <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;developers&quot;]">
                 <div class="text-center mb-30">
                     <div class="team-image has-shapes d-inline-block mb-25">
                         <img class="img-fluid rounded-circle" src="{% static 'images/chairman.png' %}" alt="" style="width: 100%; height: auto;">
@@ -71,7 +70,6 @@
                     <h4 class="font-weight-bold mb-10">Sup. Evang. Ogungbamila</h4>
                     <p>Parochial Chairman</p>
                 </div>
-                <!-- team item -->
             </div>
 
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;designer&quot;]">
@@ -88,7 +86,6 @@
                     <h4 class="font-weight-bold mb-10">Snr. Ldr. Alabe</h4>
                     <p>Vice Parochial Chairman</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;marketrs&quot;]">
                 <div class="text-center mb-30">
@@ -104,7 +101,6 @@
                     <h4 class="font-weight-bold mb-10">Snr. Ldr. Oshinlaja</h4>
                     <p>Secretary of the Church</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;developers&quot;]">
                 <div class="text-center mb-30">
@@ -120,7 +116,6 @@
                     <h4 class="font-weight-bold mb-10">Hon. Snr. Evang.</h4>
                     <p>Head of Welfare</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;marketrs&quot;]">
                 <div class="text-center mb-30">
@@ -136,7 +131,6 @@
                     <h4 class="font-weight-bold mb-10">MIC. Ajayi</h4>
                     <p>Head of Women Council</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;designer&quot;]">
                 <div class="text-center mb-30">
@@ -152,7 +146,6 @@
                     <h4 class="font-weight-bold mb-10">Hon. Snr. Evang. Daniel Buraimoh</h4>
                     <p>Head of Evangelism</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;designer&quot;]">
                 <div class="text-center mb-30">
@@ -168,7 +161,6 @@
                     <h4 class="font-weight-bold mb-10">Prophet </h4>
                     <p>Head of Prophetic</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;designer&quot;]">
                 <div class="text-center mb-30">
@@ -184,7 +176,6 @@
                     <h4 class="font-weight-bold mb-10">Brother Tosin</h4>
                     <p>Head of Choir</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;designer&quot;]">
                 <div class="text-center mb-30">
@@ -200,7 +191,6 @@
                     <h4 class="font-weight-bold mb-10">Hon. Snr. Evang. Dare</h4>
                     <p>Head of Sidemen & Sidewomen</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;designer&quot;]">
                 <div class="text-center mb-30">
@@ -216,7 +206,6 @@
                     <h4 class="font-weight-bold mb-10">Hon. Snr. Evang. </h4>
                     <p>Head of Media</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;designer&quot;]">
                 <div class="text-center mb-30">
@@ -232,7 +221,6 @@
                     <h4 class="font-weight-bold mb-10">Brother Segun Adekanmbi</h4>
                     <p>Head of Sanitation</p>
                 </div>
-                <!-- team item -->
             </div>
             <div class="masonry-item team-item col-lg-4 col-sm-6 mt-4" data-groups="[&quot;designer&quot;]">
                 <div class="text-center mb-30">
@@ -249,7 +237,7 @@
                     <p>Head of Children Church</p>
 
                     
-                                        <!-- <ul class="list-unstyled list-inline mt-2">
+                                        <ul class="list-unstyled list-inline mt-2">
                                             <li class="list-inline-item">
                                                 <a href="#!" class="text-black-200 p-2 d-inline-block">
                                                 <span class="ti-linkedin"></span></a>
@@ -262,10 +250,9 @@
                                                 <a href="#!" class="text-black-200 p-2 d-inline-block">
                                                 <span class="ti-facebook"></span></a>
                                             </li>
-                                        </ul> -->
+                                        </ul>
                 </div>
-                <!-- team item -->
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

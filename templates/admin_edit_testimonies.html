@@ -7,7 +7,7 @@
         <div class="white_card_header">
             <div class="box_header m-0">
                 <div class="main-title">
-                    <h3 class="m-0">Add New Event</h3>
+                    <h3 class="m-0">Update Testimony</h3>
                 </div>
             </div>
         </div>
@@ -28,23 +28,29 @@
             {% endfor %}
 
             <div class="common_form">
-                <form action="{% url 'new-event' %}" method="POST">
+                <form action="{% url 'update-testimony' testimony.id %}" method="POST">
                     {% csrf_token %}
 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="common_input mb_15">
-                                <input type="text" name="periodic_display" placeholder="Periodic Display" required />
+                                <input class="form-control" type="number" name="testId" value="{{testimony.id}}" hidden />
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="common_input mb_15">
-                                <input type="text" name="service_display" placeholder="Service Display" />
+                                <input class="form-control" type="text" name="testifier" placeholder="Full Name (e.g. Dr John Kola)" value="{{testimony.testifier_name}}" required/>
                             </div>
                         </div>
-                        <div class="col-12">
+                     
+                        <div class="col-lg-12">
+                            <div class="common_input mb_15">
+                                <input class="form-control" type="text" name="content" placeholder="Testimony Message" value="{{testimony.testimony_content}}" rows="5" cols="7" maxlength="200" style="border-color: #e5ecff; border-radius: 10px; font-size: 15px; padding: 10px 25px;" required />
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
                             <div class="create_report_btn mt_30">
-                                <button class="btn_1 radius_btn d-block text-center form-control" type="submit">Save Event</button>
+                                <button class="btn_1 radius_btn d-block text-center form-control" type="submit">Save Update</button>
                             </div>
                         </div>
                     </div>

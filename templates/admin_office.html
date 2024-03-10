@@ -25,7 +25,7 @@
     function triggerDelete(event){
         let id = $('#testId').val()
 
-        window.location.href = `/account/admin/twelve-pillar/delete/${id}/`
+        window.location.href = `/account/admin/office/delete/${id}/`
     }
 </script>
 
@@ -36,7 +36,7 @@
             <div class="col-12">
                 <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
                     <div class="page_title_left d-flex align-items-center">
-                        <h3 class="f_s_25 f_w_700 dark_text mr_30">Twelve Pillars</h3>
+                        <h3 class="f_s_25 f_w_700 dark_text mr_30">Offices</h3>
                     </div>
                     <div class="page_title_right">
                         <div class="page_date_button d-flex align-items-center">
@@ -53,10 +53,10 @@
                     <div class="white_card_body">
                         <div class="QA_section">
                             <div class="white_box_tittle list_header">
-                                <h4>Members of the Twelve Pillars</h4>
+                                <h4>Office Lists</h4>
                                 <div class="box_right d-flex lms_block">
                                     <div class="add_button ms-2">
-                                        <a href="{% url 'new-twelve-pillar' %}" class="btn_1">Add New Member</a>
+                                        <a href="{% url 'new-office' %}" class="btn_1">Add New Office</a>
                                     </div>
                                 </div>
                             </div>
@@ -79,9 +79,7 @@
                     
                                     <thead>
                                         <tr>
-                                            <th scope="col">Office</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Image</th>
+                                            <th scope="col">Office Title</th>
                                             <th scope="col">Date Created</th>
                                             {% if user.is_superuser != False %}
                                                 <th>Created By</th>
@@ -90,19 +88,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for twelvePillar in twelvePillars %}
+                                        {% for office in offices %}
                                             <tr>
-                                                <td>{{twelvePillar.office}}</td>
-                                                <td>{{twelvePillar.name}}</td>
-                                                <td><img src="data:image/jpg;base64,{{twelvePillar.image}}" alt="" width="50%" height="50px"></td>
-                                                <td>{{twelvePillar.date_created}}</td>
+                                                <td>{{office.title}}</td>
+                                                <td>{{office.date_created}}</td>
                                                 {% if user.is_superuser != False %}
-                                                    <td>{{twelvePillar.created_by}}</td>
+                                                    <td>{{office.created_by}}</td>
                                                 {% endif %}
                                                 <td>
                                                     <div class="action_btns d-flex">
-                                                        <a href="{% url 'update-twelve-pillar' twelvePillar.id %}" class="action_btn mr_10"> <i class="far fa-edit"></i> </a>
-                                                        <a href="" class="action_btn" onclick="showAlert(event, '{{twelvePillar.id}}')"> <i class="fas fa-trash"></i> </a>
+                                                        <a href="{% url 'update-office' office.id %}" class="action_btn mr_10"> <i class="far fa-edit"></i> </a>
+                                                        <a href="" class="action_btn" onclick="showAlert(event, '{{office.id}}')"> <i class="fas fa-trash"></i> </a>                                                    
                                                     </div>
                                                 </td>
                                             </tr>

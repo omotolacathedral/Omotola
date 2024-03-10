@@ -37,26 +37,59 @@
         <div class="mx-auto" style="max-width:400px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
             <div class="p-3 p-sm-4 ">
                 <h2 class="text-center" style="margin-bottom: 50px;">Register</h2> 
+
+                {% for message in messages %}
+                    {% if message.tags != "success" %}
+        
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{message}}
+                        </div>
+                    {% else %}
+        
+                        <div class="alert alert-{{message.tags}} alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{message}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
                 <form action="{% url 'register' %}" method="POST" class="needs-validation row" novalidate>
-                    <div class="form-group mb-20 col-12">
-                        <label class="text-black-200 h6 font-weight-600 mb-2" for="email">Email Address*</label>
-                        <input class="form-control shadow-none" type="email" id="email" required>
-                        <p class="font-weight-bold invalid-feedback">Your email is required!</p>
+                    {% csrf_token %}
+
+                    <!-- <div class="form-group mb-20 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="first_name">First Name*</label>
+                        <input class="form-control shadow-none" type="text" name="first_name" id="firstName" required>
+                        <p class="font-weight-bold invalid-feedback">Your firstname is required!</p>
                     </div>
                     <div class="form-group mb-20 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="last_name">Last Name*</label>
+                        <input class="form-control shadow-none" type="text" name="last_name" id="lastName" required>
+                        <p class="font-weight-bold invalid-feedback">Your lastname is required!</p>
+                    </div> -->
+                    <div class="form-group mb-15 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="email">Email Address*</label>
+                        <input class="form-control shadow-none" type="email" name="email" id="email" required>
+                        <p class="font-weight-bold invalid-feedback">Your email is required!</p>
+                    </div>
+                    <div class="form-group mb-15 col-12">
                         <label class="text-black-200 h6 font-weight-600 mb-2" for="passwordSignIn">Password*</label>
-                        <input class="form-control shadow-none" type="password" id="passwordSignIn" required>
+                        <input class="form-control shadow-none" type="password" name="password" id="passwordSignIn" required>
                         <p class="font-weight-bold invalid-feedback">Your password is required!</p>
                     </div>
                     <div class="form-group mb-20 col-12">
                         <label class="text-black-200 h6 font-weight-600 mb-2" for="confirmPasswordSignIn">Confirm Password*</label>
-                        <input class="form-control shadow-none" type="password" id="confirmPasswordSignIn" required>
+                        <input class="form-control shadow-none" type="password" name="confirm_password" id="confirmPasswordSignIn" required>
                         <p class="font-weight-bold invalid-feedback">Re-type your password!</p>
                     </div>
                     <div class="form-group col-12">
                         <button class="btn btn-primary w-100" type="submit">Sign Up</button>
 
-                        <p style="text-align: center; margin-top: 30px;">Do you have an account? <a href="{% url 'login' %}">Sign In</a></p>
+                        <p style="text-align: center; margin-top: 30px;">Do you have an account? <a href="{% url 'login' %}" id="signIn" style="color: #ff3158;">Sign In</a></p>
+                       
+                       <style>
+                            #signIn:hover{
+                                color: #000 !important;
+                            }
+                        </style>
                     </div>
                 </form>
             </div>

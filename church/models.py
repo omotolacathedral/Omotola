@@ -6,11 +6,20 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class Announcement(models.Model):
+    event_announcement = models.TextField(default=None, null=True, blank=True)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_removed = models.BooleanField(default=False, null=True, blank=True)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+
+
 class Event(models.Model):
-    event_announcement = models.TextField(null=True, blank=True)
+    # event_announcement = models.TextField(null=True, blank=True)
     periodic_display = models.TextField(null=True, blank=True)
     service_display = models.TextField(null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_removed = models.BooleanField(default=False, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
 
@@ -19,6 +28,7 @@ class Testimony(models.Model):
     testifier_name = models.CharField(max_length=250)
     testimony_content = models.CharField(max_length=250)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_removed = models.BooleanField(default=False, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -29,6 +39,7 @@ class Testimony(models.Model):
 class Birthday(models.Model):
     image = models.TextField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_removed = models.BooleanField(default=False, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
 
@@ -36,6 +47,7 @@ class Birthday(models.Model):
 class Office(models.Model):
     title = models.CharField(max_length=250)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_removed = models.BooleanField(default=False, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -45,7 +57,9 @@ class Office(models.Model):
 class Team(models.Model):
     office = models.OneToOneField(Office, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
+    image = models.TextField(default=None, null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_removed = models.BooleanField(default=False, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

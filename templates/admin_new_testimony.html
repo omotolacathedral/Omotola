@@ -12,26 +12,40 @@
             </div>
         </div>
         <div class="white_card_body">
-            <div class="thumb mb_30">
-                <img src="img/table.svg" alt class="img-fluid" />
-            </div>
+            
+            {% for message in messages %}
+                {% if message.tags != "success" %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong style="text-transform: capitalize;">{{user.username}}!</strong> {{message}}.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>    
+                {% else %}
+                    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                        <strong style="text-transform: capitalize;">{{user.username}}!</strong> {{message}}.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>    
+                {% endif %}
+            {% endfor %}
+
             <div class="common_form">
-                <form action="#" method="POST">
+                <form action="{% url 'new-testimony' %}" method="POST">
+                    {% csrf_token %}
+
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="common_input mb_15">
-                                <input class="form-control" type="text" placeholder="Full Name (e.g. Dr John Kola)" />
+                                <input class="form-control" type="text" name="testifier" placeholder="Full Name (e.g. Dr John Kola)" required/>
                             </div>
                         </div>
                      
                         <div class="col-lg-12">
                             <div class="common_input mb_15">
-                                <textarea class="form-control" type="text" placeholder="Testimony message" rows="5" cols="7" style="border-color: silver;"></textarea>
+                                <textarea class="form-control" type="text" name="content" placeholder="Testimony Message" rows="5" cols="7" maxlength="200" style="border-color: #e5ecff; border-radius: 10px; font-size: 15px; padding: 10px 25px;" required></textarea>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-lg-12">
                             <div class="create_report_btn mt_30">
-                                <a href="javascript:void(0)" class="btn_1 radius_btn d-block text-center" onclick="toggleErrorAlert()">Save Testimony</a>
+                                <button class="btn_1 radius_btn d-block text-center form-control" type="submit">Save Testimony</button>
                             </div>
                             
                         </div>
@@ -40,7 +54,7 @@
                 
                 <br><br>
 
-                <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
+                <!-- <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert">
                     <strong>Holy guacamole!</strong> You should check in on some of those fields below.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -48,21 +62,21 @@
                 <div class="alert alert-danger alert-dismissible fade hide" role="alert" id="errorAlert">
                     <strong>Holy guacamole!</strong> You should check in on some of those fields below.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    function toggleErrorAlert(){
+    // function toggleErrorAlert(){
 
-        let errorAlert = document.getElementById("errorAlert");
+    //     let errorAlert = document.getElementById("errorAlert");
 
-        errorAlert.style.display === "block"
+    //     errorAlert.style.display === "block"
 
-        console.log(errorAlert.style.display)
-    }
+    //     console.log(errorAlert.style.display)
+    // }
 </script>
 
 {% endblock %}

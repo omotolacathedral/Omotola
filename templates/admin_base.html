@@ -6,7 +6,8 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>Omotola Cathedral Admin</title>
-        <link rel="icon" href="img/mini_logo.png" type="image/png" />
+        <link rel="icon" href="{% static 'images/celestial_favicon.png' %}">
+
 
         <link rel="stylesheet" href="{% static 'admin/css/bootstrap1.min.css' %}" />
 
@@ -43,6 +44,29 @@
 
 
         <style>
+            .action_btn{
+                color: #ff3158 !important;
+            }
+
+            .action_btn:hover{
+                color: #fff !important;
+                background: #ff3158 !important;
+                box-shadow: 0 5px 10px #f59fb0 ;
+            }
+
+
+
+            .btn_1 {
+                border: #ff3158 !important;
+                background-color: #ff3158 !important;
+            }
+
+            .btn_1:hover {
+                box-shadow: 0 3px 11px #f59fb0;
+            }
+
+
+
             .btn_1.radius_btn {
                 border-radius: 15px;
                 font-size: 14px;
@@ -52,12 +76,44 @@
                 padding: 16px 10px;
             }
 
-            .btn_1 {
-                border: #ff3158 !important;
+            .btn_1.radius_btn:hover {
+                box-shadow: 0 3px 6px #f59fb0;
             }
+
+
+
+            #back-top{
+                display: inline-block !important;
+            }
+
+            #back-top a{
+                background: #ff3158 !important;
+                -webkit-box-shadow: 0 10px 20px 0 #f59fb0;
+                -moz-box-shadow: 0 10px 20px 0 #f59fb0;
+                box-shadow: 0 10px 20px 0 #f59fb0;
+            }
+
+
+            .profile_info img {
+                border: 2px solid #f59fb0;
+            }
+
+            .profile_info .profile_info_iner .profile_author_name {
+                background: #ff3158;
+            }
+
+            .profile_info .profile_info_iner .profile_info_details {
+                background: #efecec;
+                border-radius: 0 0 10px 10px;
+            }
+
+            .profile_info .profile_info_iner::before {
+                border-color: transparent transparent #ff3158 transparent;
+            }
+
         </style>
     </head>
-    <body class="crm_body_bg">
+    <body class="crm_body_bg" id="top">
         <nav class="sidebar">
             <div class="logo d-flex justify-content-between">
                 <a class="large_logo" href="index.html"><img src="{% static 'images/logo.png' %}" alt="" style="width: 40%; height: auto;" /></a>
@@ -92,6 +148,7 @@
                         </div>
                     </a>
                     <ul>
+                        <li><a href="{% url 'admin-announcement' %}">Announcement</a></li>
                         <li><a href="{% url 'admin-event' %}">Event</a></li>
                         <li><a href="{% url 'admin-birthday' %}">Birthday</a></li>
                         <li><a href="{% url 'admin-testimony' %}">Testimony</a></li>
@@ -107,6 +164,7 @@
                         </div>
                     </a>
                     <ul>
+                        <li><a href="{% url 'admin-office' %}">Offices</a></li>
                         <li><a href="{% url 'admin-twelve-pillar' %}">Twelve-Pillars</a></li>
                     </ul>
                 </li>
@@ -125,7 +183,7 @@
                             <div class="line_icon open_miniSide d-none d-lg-block">
                                 <img src="img/line_img.png" alt />
                             </div>
-                            <div class="serach_field-area d-flex align-items-center">
+                            <!-- <div class="serach_field-area d-flex align-items-center">
                                 <div class="search_inner">
                                     <form action="#">
                                         <div class="search_field">
@@ -134,9 +192,9 @@
                                         <button type="submit"><img src="img/icon/icon_search.svg" alt /></button>
                                     </form>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="header_right d-flex justify-content-between align-items-center">
-                                <div class="header_notification_warp d-flex align-items-center">
+                                <!-- <div class="header_notification_warp d-flex align-items-center">
                                     <li>
                                         <a class="bell_notification_clicker" href="#">
                                             <img src="img/icon/bell.svg" alt />
@@ -218,18 +276,27 @@
                                     <li>
                                         <a class="CHATBOX_open" href="#"> <img src="img/icon/msg.svg" alt /> <span>2</span> </a>
                                     </li>
-                                </div>
+                                </div> -->
                                 <div class="profile_info">
-                                    <img src="img/client_img.png" alt="#" />
+                                    <img src="img/client_img.png" alt="Admin" />
                                     <div class="profile_info_iner">
                                         <div class="profile_author_name">
-                                            <p>Neurologist</p>
-                                            <h5>Dr. Robar Smith</h5>
+                                            {% if user.is_superuser != False %}
+                                                <p>Supreme Admin</p>
+                                            {% else %}
+                                                <p>Admin</p>
+                                            {% endif %}
+                                            
+                                            <h5>{{user.username}}</h5>
                                         </div>
                                         <div class="profile_info_details">
-                                            <a href="#">My Profile </a>
-                                            <a href="#">Settings</a>
-                                            <a href="#">Log Out </a>
+
+                                            {% if user.is_superuser != False %}
+                                                <a href="{% url 'get-all-staffs' %}">Profiles Management</a>
+                                            {% endif %}
+
+                                            <!-- <a href="#">Settings</a> -->
+                                            <a href="{% url 'logout' %}">Log Out </a>
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +321,13 @@
                         <div class="col-lg-12">
                             <div class="footer_iner text-center">
                                 <p>
-                                    © 2024 Omotola Cathedral. All Right Reserved. Designed & Developed by <a href="#"> Mike </a>
+                                    © 2024 Omotola Cathedral. All Right Reserved. Designed & Developed by <a href="#" id="developer"> Mike </a>
+
+                                    <style>
+                                        #developer{
+                                            color: #ff3158 !important;
+                                        }
+                                    </style>
                                 </p>
                             </div>
                         </div>
@@ -265,7 +338,7 @@
 
 
 
-        <div class="CHAT_MESSAGE_POPUPBOX">
+        <!-- <div class="CHAT_MESSAGE_POPUPBOX">
             <div class="CHAT_POPUP_HEADER">
                 <div class="MSEESAGE_CHATBOX_CLOSE">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -373,10 +446,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <div id="back-top" style="display: none;">
-            <a title="Go to Top" href="#">
+        <div id="back-top">
+            <a title="Go to Top" href="#top">
                 <i class="ti-angle-up"></i>
             </a>
         </div>
@@ -422,7 +495,14 @@
 
         <script src="{% static 'admin/vendors/text_editor/summernote-bs4.js' %}"></script>
         <script src="{% static 'admin/js/custom.js' %}"></script>
-    </body>
 
-    <!-- Mirrored from demo.dashboardpack.com/user-management-html/admin_list.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 28 Feb 2024 20:13:37 GMT -->
+        <script>
+            function showAlert(event, id){
+                event.preventDefault()
+
+                $('#testId').val(id)
+                $('#alertModal').modal('show')            
+            }
+        </script>
+    </body>
 </html>

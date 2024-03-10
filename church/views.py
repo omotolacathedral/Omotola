@@ -3,7 +3,6 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from . models import *
 from emailsend import OTGGenerator
-from base64converter import CustomInMemoryBase64Converter
 from datetime import datetime, timezone
 
 # Create your views here.
@@ -11,6 +10,9 @@ from datetime import datetime, timezone
 
 def home(request):
     try:
+        birthday = Birthday.objects.filter(is_removed=False)
+        announcement = Announcement.objects.filter(is_removed=False)
+        testimony = Testimony.objects.filter(is_removed=False).order_by('date_created')
         event = Event.objects.first()
 
         date_created = event.date_created.strftime('%A')
@@ -20,8 +22,7 @@ def home(request):
             event.service_display = None
             event.save()
         
-        # birthday = Birthday.objects.all()
-        return render(request, "index.html", {"event": event})
+        return render(request, "index.html", {"event": event, "testimonys": testimony, "birthdays": birthday, "announcement": announcement})
     
     except Exception as ex:
         print(ex)
@@ -48,7 +49,8 @@ def contact(request):
 
 def testimonies(request):
     try:
-        return render(request, "testimonies.html")
+        testimony = Testimony.objects.filter(is_removed=False).order_by('date_created')
+        return render(request, "testimonies.html", {"testimonys": testimony})
 
     except Exception as ex:
         print(ex)
@@ -66,7 +68,7 @@ def services(request):
 
 def twelvePillars(request):
     try:
-        pillar = Team.objects.all().order_by('date_created')
+        pillar = Team.objects.filter(is_removed=False).order_by('date_created')
         return render(request, "twelve-pillars.html", {"pillars": pillar})
     
     except Exception as ex:

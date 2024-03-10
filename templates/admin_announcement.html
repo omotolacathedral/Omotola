@@ -25,7 +25,7 @@
     function triggerDelete(event){
         let id = $('#testId').val()
 
-        window.location.href = `/account/admin/twelve-pillar/delete/${id}/`
+        window.location.href = `/account/admin/announcement/delete/${id}/`
     }
 </script>
 
@@ -36,14 +36,14 @@
             <div class="col-12">
                 <div class="page_title_box d-flex flex-wrap align-items-center justify-content-between">
                     <div class="page_title_left d-flex align-items-center">
-                        <h3 class="f_s_25 f_w_700 dark_text mr_30">Twelve Pillars</h3>
+                        <h3 class="f_s_25 f_w_700 dark_text mr_30">Announcements</h3>
                     </div>
-                    <div class="page_title_right">
+                    <!-- <div class="page_title_right">
                         <div class="page_date_button d-flex align-items-center">
                             <img src="img/icon/calender_icon.svg" alt />
                             August 1, 2020 - August 31, 2020
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -53,10 +53,10 @@
                     <div class="white_card_body">
                         <div class="QA_section">
                             <div class="white_box_tittle list_header">
-                                <h4>Members of the Twelve Pillars</h4>
+                                <h4>Announcement Lists</h4>
                                 <div class="box_right d-flex lms_block">
                                     <div class="add_button ms-2">
-                                        <a href="{% url 'new-twelve-pillar' %}" class="btn_1">Add New Member</a>
+                                        <a href="{% url 'new-announcement' %}" class="btn_1">Add New Announcement</a>
                                     </div>
                                 </div>
                             </div>
@@ -76,12 +76,10 @@
                                             </div>    
                                         {% endif %}
                                     {% endfor %}
-                    
+                                                
                                     <thead>
                                         <tr>
-                                            <th scope="col">Office</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Image</th>
+                                            <th scope="col">Announcement</th>
                                             <th scope="col">Date Created</th>
                                             {% if user.is_superuser != False %}
                                                 <th>Created By</th>
@@ -90,19 +88,17 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for twelvePillar in twelvePillars %}
+                                        {% for announcement in announcements %}
                                             <tr>
-                                                <td>{{twelvePillar.office}}</td>
-                                                <td>{{twelvePillar.name}}</td>
-                                                <td><img src="data:image/jpg;base64,{{twelvePillar.image}}" alt="" width="50%" height="50px"></td>
-                                                <td>{{twelvePillar.date_created}}</td>
+                                                <td><img src="data:image/jpg;base64,{{announcement.event_announcement}}" alt="" width="50%" height="50px"></td>
+                                                <td>{{announcement.date_created}}</td>
                                                 {% if user.is_superuser != False %}
-                                                    <td>{{twelvePillar.created_by}}</td>
+                                                    <td>{{announcement.created_by}}</td>
                                                 {% endif %}
                                                 <td>
                                                     <div class="action_btns d-flex">
-                                                        <a href="{% url 'update-twelve-pillar' twelvePillar.id %}" class="action_btn mr_10"> <i class="far fa-edit"></i> </a>
-                                                        <a href="" class="action_btn" onclick="showAlert(event, '{{twelvePillar.id}}')"> <i class="fas fa-trash"></i> </a>
+                                                        <a href="{% url 'update-announcement' announcement.id %}" class="action_btn mr_10"> <i class="far fa-edit"></i> </a>
+                                                        <a href="" class="action_btn" onclick="showAlert(event, '{{announcement.id}}')"> <i class="fas fa-trash"></i> </a>
                                                     </div>
                                                 </td>
                                             </tr>
