@@ -12,7 +12,7 @@ def adminTestimony(request):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:
         try:
-            testimony = Testimony.objects.filter(is_removed=False)
+            testimony = Testimony.objects.filter(is_removed=False).order_by("-date_created")
             return render(request, "admin_testimonies.html", {"testimonys": testimony})
         
         except Exception as ex:
@@ -107,7 +107,7 @@ def adminOffice(request):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:
         try:
-            office = Office.objects.filter(is_removed=False).order_by("-date_created")
+            office = Office.objects.filter(is_removed=False).order_by("date_created")
             return render(request, "admin_office.html", {"offices": office})
         
         except Exception as ex:
@@ -198,7 +198,7 @@ def adminTwelvePillar(request):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:
         try:
-            twelvePillar = Team.objects.filter(is_removed=False).order_by("-date_created")
+            twelvePillar = Team.objects.filter(is_removed=False).order_by("date_created")
             return render(request, "admin_twelve_pillars.html", {"twelvePillars": twelvePillar})
         
         except Exception as ex:

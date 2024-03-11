@@ -13,6 +13,8 @@ urlpatterns = [
 
     path("prayer-request", views.prayerRequest, name="prayer-request"),
     path("devotional-letter", views.devotionalLetter, name="devotional-letter"),
+    path("contact-inquiry", views.contactInquiry, name="contact-inquiry"),
+
 
     # path("home/create", views.CreateGeneral),
     # path("home/getall/", views.GetAllGeneral),

@@ -12,7 +12,7 @@ def home(request):
     try:
         birthday = Birthday.objects.filter(is_removed=False)
         announcement = Announcement.objects.filter(is_removed=False)
-        testimony = Testimony.objects.filter(is_removed=False).order_by('date_created')
+        testimony = Testimony.objects.filter(is_removed=False).order_by('-date_created')[:4]
         event = Event.objects.first()
 
         date_created = event.date_created.strftime('%A')
@@ -49,7 +49,7 @@ def contact(request):
 
 def testimonies(request):
     try:
-        testimony = Testimony.objects.filter(is_removed=False).order_by('date_created')
+        testimony = Testimony.objects.filter(is_removed=False).order_by('-date_created')
         return render(request, "testimonies.html", {"testimonys": testimony})
 
     except Exception as ex:
@@ -59,7 +59,8 @@ def testimonies(request):
 
 def services(request):
     try:
-        return render(request, "services.html")
+        testimony = Testimony.objects.filter(is_removed=False).order_by('-date_created')[:4]
+        return render(request, "services.html", {"testimonys": testimony})
     
     except Exception as ex:
         print(ex)
@@ -123,6 +124,28 @@ def devotionalLetter(request):
 
             OTGGenerator([email], "SUBSCRIBTION TO DEVOTIONAL LETTER!!!", """We kindly inform you that you have subscribe to our devotional letter for frequent biblical and spiritual devotions.""")
             return redirect("home")
+
+    except Exception as ex:
+        print(ex)
+
+
+
+def contactInquiry(request):
+    try:
+        if request.method=="POST":
+            name = request.POST['name']
+            email = request.POST['email']
+            inquiry = request.POST['inquiry']
+
+            contact_inquiry = Inquiry(
+                name=name,
+                email=email,
+                inquiry=inquiry
+                )
+            contact_inquiry.save()
+
+            OTGGenerator([email], "SUCCESSFUL SUBMISSION OF INQUIRY!!!", """We kindly inform you that your inquiry has been sent to the church for prior attention. We will get back to you shortly. Thank you.""")
+            return redirect("contact")
 
     except Exception as ex:
         print(ex)

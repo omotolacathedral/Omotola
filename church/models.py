@@ -15,7 +15,6 @@ class Announcement(models.Model):
 
 
 class Event(models.Model):
-    # event_announcement = models.TextField(null=True, blank=True)
     periodic_display = models.TextField(null=True, blank=True)
     service_display = models.TextField(null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -81,6 +80,16 @@ class PrayerRequest(models.Model):
     email = models.EmailField()
     phone_number = models.CharField(max_length=15, null=True, blank=True)
     message = models.TextField()
+
+    def __str__(self):
+        return f"{self.name}: {self.email}"
+    
+
+
+class Inquiry(models.Model):
+    name  = models.CharField(max_length=250, null=True)
+    email = models.EmailField()
+    inquiry = models.TextField()
 
     def __str__(self):
         return f"{self.name}: {self.email}"
