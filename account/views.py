@@ -599,9 +599,10 @@ def registerStaff(request):
             # last_name = request.POST["last_name"]
             email = request.POST['email']
             
-            splitted_email = email.split("@")
-            username = splitted_email[0]
+            # splitted_email = email.split("@")
+            # uname = splitted_email[0]
 
+            username = request.POST['username']
             password = request.POST['password']
             confirm_password = request.POST['confirm_password']
 
