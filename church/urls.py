@@ -10,7 +10,6 @@ urlpatterns = [
     path("testimonies/", views.testimonies, name="testimonies"),
     path("four-corners/", views.fourCorners, name="four-corners"),
     path("twelve-pillars/", views.twelvePillars, name="twelve-pillars"),
-    # path("sermon/", views.sermon, name="sermon"),
 
     path("prayer-request", views.prayerRequest, name="prayer-request"),
     path("devotional-letter", views.devotionalLetter, name="devotional-letter"),

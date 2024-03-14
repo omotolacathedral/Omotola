@@ -86,15 +86,6 @@ def fourCorners(request):
 
 
 
-# def sermon(request):
-#     try:
-#         return render(request, "sermon.html")
-    
-#     except Exception as ex:
-#         print(ex)  
-
-
-
 def prayerRequest(request):
     try:
         if request.method=="POST":
