@@ -39,7 +39,5 @@ urlpatterns = [
     path("admin/logout", views.logoutStaff, name="logout"),
 
     path("admin/profiles/", views.getAllStaffs, name="get-all-staffs"),
-    # path("admin/getid/<str:id>/", views.getById, name="get-byid-staff"),
-    # path("admin/update/<str:id>/", views.updateStaff name="update-staff"),
     path("admin/delete/<str:id>/", views.deleteStaff, name="delete-staff"),
 ]

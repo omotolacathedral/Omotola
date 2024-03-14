@@ -696,17 +696,6 @@ def getAllStaffs(request):
 
 
 
-# def getById(request, id):
-#     try:
-#         getidstaff = User.objects.get(pk = id)
-#         return render(request, "", {})                       #check
-
-#     except Exception as ex:
-#         print(ex)
-
-
-
-
 def deleteStaff(request, id):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:

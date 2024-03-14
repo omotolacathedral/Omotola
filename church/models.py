@@ -12,6 +12,9 @@ class Announcement(models.Model):
     is_removed = models.BooleanField(default=False, null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"{self.event_announcement}"
+
 
 
 class Event(models.Model):
@@ -94,42 +97,3 @@ class Inquiry(models.Model):
     def __str__(self):
         return f"{self.name}: {self.email}"
     
-
-
-
-
-
-
-
-
-
-# class GeneralView(models.Model):
-#     favicon = models.TextField()
-#     church_logo = models.TextField()
-
- 
-
-# class HomeView(models.Model):
-#     front_video = models.FileField(upload_to="video", null=True, blank=True)
-#     front_image = models.TextField(null=True, blank=True)
-#     evangelism_topic = models.CharField(max_length=50, null=True, blank=True)
-#     evangelism_content = models.CharField(max_length=250, null=True, blank=True)
-#     evangelism_image = models.TextField(null=True, blank=True)
-#     timestamp = models.DateTimeField(auto_now_add=True) 
-
-
-
-# class BlogView(models.Model):
-#     topic = models.CharField(max_length=250)
-#     content = models.TextField()
-#     image = models.TextField(null=True, blank=True)
-#     timestamp = models.DateTimeField(auto_now_add=True)
-
-
-
-# class MediaView(models.Model):
-#     image = models.TextField()
-#     image_description = models.TextField(null=True, blank=True)
-#     video = models.FileField(upload_to="video", null=True, blank=True)
-#     video_description = models.TextField(null=True, blank=True)
-#     timestamp = models.DateTimeField(auto_now_add=True) 

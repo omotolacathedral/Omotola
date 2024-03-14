@@ -13,12 +13,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #fff;"></button>
             </div>
             <div class="modal-body">
-                <iframe src="https://drive.google.com/file/d/1-SJUvYnGM-wv3dsqopSDhD6rQ3mtX0b7/preview" width="100%" height="400" allow="autoplay"></iframe>
-                <!-- <img src="data:image/jpg;base64,{{announcement.event_announcement}}" width="100%" height="auto" alt="" > -->
+                <!-- <iframe src="https://drive.google.com/file/d/1-SJUvYnGM-wv3dsqopSDhD6rQ3mtX0b7/preview" width="100%" height="400" allow="autoplay"></iframe> -->
+                <img src="data:image/jpg;base64,{{announcement.event_announcement}}" width="100%" height="auto" alt="" >
             </div>
             <div class="modal-footer" style="visibility: hidden;">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
         </div>
     </div>
@@ -38,7 +37,6 @@
                     <button type="button" class="video-play-btn" data-toggle="modal" data-src="{{event.periodic_display}}" data-target="#videoModal"><svg width="1.8em" height="1.8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg></button>
                     {% endif %}
 
-                    <!-- <img class="img-fluid" src="images/screenshots/banner-shot.png" alt=""> -->
                     <img class="img-fluid" src="{% static 'images/lp.png' %}" alt="omotola-cathedral" style="height: auto; width: 100%;">
                     
                 </div>
@@ -84,10 +82,6 @@
                         <img class="img-fluid" src="{% static 'images/seminary.png' %}" alt=""></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
                         <img class="img-fluid" src="{% static 'images/genesis_global.png' %}" alt=""></div>
-                    <!-- <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="images/brands/06-colored.png" alt=""></div>
-                    <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="images/brands/05-colored.png" alt=""></div> -->
                 </div>
             </div>
         </div>
@@ -136,7 +130,7 @@
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 anim-to-bottom" style="padding-left: 20px;">
                                 <h2 class="section-title"> <strong>Evangelism</strong></h2>
-                                <p class="mb-30">We spread the Good News and share the transformative power of God's grace through our evangelism initiatives. Join us in spreading the Good News of salvation, sharing God's love, and inviting souls to experience His transformative grace.</p>
+                                <p class="mb-30 text-justify">We spread the Good News and share the transformative power of God's grace through our evangelism initiatives. Join us in spreading the Good News of salvation, sharing God's love, and inviting souls to experience His transformative grace.</p>
                                 <a href="{% url 'four-corners' %}" class="btn btn-primary has-icon">View More
                                     <span class="icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5522 6.66669L20.5522 14.6667C21.0329 15.1473 21.0699 15.9036 20.6632 16.4267L20.5522 16.5523L12.5522 24.5523L10.6666 22.6667L17.7228 15.6095L10.6666 8.55231L12.5522 6.66669Z" fill="currentColor"/></svg></span>
                                 </a>
@@ -150,7 +144,7 @@
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 anim-to-bottom">
                                 <h2 class="section-title"> <strong>Prophet & Prophetess</strong></h2>
-                                <p class="mb-30">We explore the prophetic words and divine guidance to navigate life's journey with clarity, purpose, and spiritual insight. Embrace this divine revelation!</p>
+                                <p class="mb-30 text-justify">We explore the prophetic words and divine guidance to navigate life's journey with clarity, purpose, and spiritual insight. Embrace this divine revelation!</p>
                                 <a href="{% url 'four-corners' %}" class="btn btn-primary has-icon">View More
                                     <span class="icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5522 6.66669L20.5522 14.6667C21.0329 15.1473 21.0699 15.9036 20.6632 16.4267L20.5522 16.5523L12.5522 24.5523L10.6666 22.6667L17.7228 15.6095L10.6666 8.55231L12.5522 6.66669Z" fill="currentColor"/></svg></span>
                                 </a>
@@ -164,7 +158,7 @@
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 anim-to-bottom">
                                 <h2 class="section-title"> <strong>Choir</strong></h2>
-                                <p class="mb-30">We raise our voices in praise and harmony to the Almighty, uplifting hearts and souls through sacred melodies that resonate with divine grace.</p>
+                                <p class="mb-30 text-justify">We raise our voices in praise and harmony to the Almighty, uplifting hearts and souls through sacred melodies that resonate with divine grace.</p>
                                 <a href="{% url 'four-corners' %}" class="btn btn-primary has-icon">View More
                                     <span class="icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5522 6.66669L20.5522 14.6667C21.0329 15.1473 21.0699 15.9036 20.6632 16.4267L20.5522 16.5523L12.5522 24.5523L10.6666 22.6667L17.7228 15.6095L10.6666 8.55231L12.5522 6.66669Z" fill="currentColor"/></svg></span>
                                 </a>
@@ -178,7 +172,7 @@
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 anim-to-bottom">
                                 <h2 class="section-title"> <strong>Sidemen & Sidewomen</strong></h2>
-                                <p class="mb-30">
+                                <p class="mb-30 text-justify">
                                     We upholds the sanctity of worship, ensures the sanctuary remains a sacred space and allowing hearts and minds 
                                     to be fully engaged in spiritual reflection, prayer, and communion with the divine during their time of devotion.
                                 </p>
@@ -200,7 +194,7 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-4 mt-4 mt-lg-0">
-                <h2 class="section-title" style="text-align: center;" >The <strong>Eight Elevators</strong></h2>
+                <h2 class="section-title">The <strong>Eight Elevators</strong></h2>
                 <p>
                     Meet the faithful patriarchs and matriarchs of our spiritual community, guided by God's wisdom and compassion, leading us on our journey of faith unto good works.
                 </p>
@@ -253,39 +247,9 @@
                             and witness the first-hand proof that the Grace 
                             of our Lord Jesus Christ is with us always.
                         </p>
-                        <!-- <div class="has-colored-text growth-rate-counter"> -->
+
+
                         <div class="row colored-icon-box">
-                            <!-- <div class="d-inline-block block-sm mr-30 mt-30">
-                                <h2 class="has-text-color font-weight-bold">
-                                <span class="jsCounter" data-count="24">0</span>+</h2>
-                                <p class="mt-10">Years Of <br> Experience</p>
-                            </div> -->
-                                    <!-- <div class="col-sm-6" data-aos="fade-up" data-aos-delay="100">
-                                        <div class="icon-box text-center shadow px-3 px-md-5 px-lg-2 py-5 mb-30">
-                                            <i class="ti-star icon"></i>
-                                            <h4 class="font-weight-bold text-black-200">New Moon Service</h4>
-                                            <h4>(10:00 PM)</h4>
-                                            <h4>First Thursdays of the Month</h4>
-                                        </div>
-                                    </div> -->
-                                            <!-- <div class="d-inline-block block-md mr-30 mt-30" style="text-align: center;">
-                                                <h4 class="font-weight-bold text-black-200">New Moon Service</h4>
-                                                <p class="mt-10">(10:00 PM) <br>First Thursdays of the Month</p>
-                                            </div>
-                                            <div class="d-inline-block block-md mr-30 mt-30" style="text-align: center;">
-                                                <h4 class="font-weight-bold text-black-200">Prophetic Service</h4>
-                                                <p class="mt-10">(00:00 AM) <br>Thursdays</p>
-                                            </div> -->
-                            <!-- <div class="d-inline-block block mr-30 mt-30">
-                                <h2 class="has-text-color font-weight-bold">
-                                <span class="jsCounter" data-count="10">0</span>M+</h2>
-                                <p class="mt-10">More Real <br> Active users</p>
-                            </div> -->
-                            <!-- <div class="d-inline-block block mt-30">
-                                <h2 class="has-text-color font-weight-bold">
-                                <span class="jsCounter" data-count="3000">0</span>+</h2>
-                                <p class="mt-10">Employees <br> Work Here</p>
-                            </div> -->
                         </div>
                     </div>
                     <div class="col-lg-6 mt-5 mt-lg-0">
@@ -401,29 +365,12 @@
         <div class="row">
             <div class="col-md-12" data-aos="fade-left"> 
                 <div class="brand-carousel" style="margin: 20px;">
-                        <!-- data:image/jpg;base64,{{booking.hotel.hotel_viewText}}  width="100%" height="140px" style="border-radius: 5px; -->
                     
                     {% for birthday in birthdays %}
                         <div class="brand-item d-flex align-items-center justify-content-center">  
                             <img class="img-fluid" src="data:image/png;base64,{{birthday.image}}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
                     {% endfor %}
                     
-                    <!-- <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
-                    <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
-                    <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
-                    <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
-                    <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
-                    <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
-                    <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
-                    <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/birthday-celebrant.png' %}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div> -->
                 </div>
             </div>
         </div>
@@ -451,16 +398,10 @@
                         <div class="testimonials-item bg-white">
                             <div class="block border rounded bg-white">
                                 <svg class="icon mb-15" width="25" height="10" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.75001 35L13.75 35C15.8203 35 17.5 33.3203 17.5 31.25L17.5 21.25C17.5 19.1797 15.8203 17.5 13.75 17.5L7.50001 17.5L7.50001 12.5C7.50001 9.74219 9.74219 7.5 12.5 7.5L13.125 7.5C14.1641 7.5 15 6.66406 15 5.625L15 1.875C15 0.83594 14.1641 2.25865e-06 13.125 2.34949e-06L12.5 2.40413e-06C5.59375 3.00789e-06 5.05862e-06 5.59375 5.66238e-06 12.5L7.30156e-06 31.25C7.48255e-06 33.3203 1.6797 35 3.75001 35ZM26.25 35L36.25 35C38.3203 35 40 33.3203 40 31.25L40 21.25C40 19.1797 38.3203 17.5 36.25 17.5L30 17.5L30 12.5C30 9.74219 32.2422 7.5 35 7.5L35.625 7.5C36.6641 7.5 37.5 6.66406 37.5 5.625L37.5 1.875C37.5 0.835938 36.6641 2.91637e-07 35.625 3.82475e-07L35 4.37114e-07C28.0937 1.04088e-06 22.5 5.59375 22.5 12.5L22.5 31.25C22.5 33.3203 24.1797 35 26.25 35Z" fill="currentColor"/></svg>
-                                <p class="h6 text-black-300 font-weight-light">{{testimony.testimony_content|safe|truncatewords:"15"|linebreaks}}</p>
-                                <a href="{% url 'testimonies' %}" id="read" style="color: #ff3158;">read more</a>             
-                                <!-- {% if testimony.testimony_content %}
-                                    <label id="half-{{ testimony.id }}">{{ testimony.testimony_content|safe|linebreaks|truncatewords:15 }}<a href="javascript:void();" onclick="testimony(event, '{{testimony.id}}')"><br>Read more</a></label>
-                                    <span id="full-{{ testimony.id }}" style="display: none;">{{ testimony.testimony_content|safe|linebreaks }}<a href="javascript:void();">Read less</a></span>
-                                {% else %}
-                                    <p>
-                                    {{ testimony.testimony_content|safe|linebreaks }}
-                                    </p>
-                                {% endif %} -->
+                                {% if testimony.testimony_content %}
+                                    <h6 id="half-{{ testimony.id }}">{{ testimony.testimony_content|safe|linebreaks|truncatewords:15 }}<a href="javascript:void();" onclick="testimony(event, '{{testimony.id}}')">Read more</a></h6>
+                                    <h6 id="full-{{ testimony.id }}" style="display: none;">{{ testimony.testimony_content|safe|linebreaks }}<a href="javascript:void();" onclick="lessTestimony(event, '{{testimony.id}}')">Read less</a></h6>
+                                {% endif %}
                                 
                                 <img src="{% static 'images/testimonials/arrow.png' %}" alt="">
                                 <style>
@@ -468,22 +409,6 @@
                                         color: black !important;
                                     }
                                 </style>
-
-                                <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                                <script>
-                                    // $(document).ready(function() {
-                                    //     $(".show-hide-btn").click(function() {
-                                    //         var id = $(this).data("id");
-                                    //         $("#half-" + id).toggle();  //hide/show..
-                                    //         $("#full-" + id).toggle();
-                                    //     })
-                                    // })
-                                    function testimony(event, id){
-                                        // $("#half-" + id).toggle();
-                                        document.getElementById("half-" + id).style.display="none"
-                                        $("#full-" + id).toggle();
-                                    }
-                                </script> -->
                             </div>
                             <div class="user-info d-flex align-items-center mt-30">
                                 <!-- <img class="d-inline rounded-circle mr-3" src="images/users/01.jpg" alt=""> -->
@@ -528,16 +453,24 @@
 <br><br><br>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    // $('#exampleModal').modal('toggle');
-    // $('#exampleModal').modal('show');
-    // $('#exampleModal').modal('hide');
-
     $( document ).ready(function() {
         $('#exampleModal').modal('show');
         console.log( "ready!" );
     });
-</script>
 
+
+
+    function testimony(event, id){
+        document.getElementById("half-" + id).style.display="none"
+        $("#full-" + id).toggle();
+    }
+
+    function lessTestimony(event, id){
+        document.getElementById("full-" + id).style.display="none"
+        $("#half-" + id).toggle();
+    }
+</script>
 
 {% endblock %}

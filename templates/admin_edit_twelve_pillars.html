@@ -43,15 +43,9 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <!-- <div class="common_input mb_15"> -->
-                                <!-- <input type="text" name="office" placeholder="New Member Office" /> -->
-                                <select name="office" id="" class="form-control"   readonly   style="color: #81879f; border-radius: 10px; border-color: #e5ecff; font-size: 14px; padding: 12px 25px;">
-                                    <option value="{{twelvePillar.office.id}}-{{twelvePillar.office.title}}">{{twelvePillar.office.title}}</option>   
-                                    <!-- {% for office in offices %}
-                                        <option value="{{office.id}}-{{office.title}}">{{office.title}}</option>   
-                                    {% endfor %} -->
-                                </select>
-                            <!-- </div> -->
+                            <select name="office" id="" class="form-control"   readonly   style="color: #81879f; border-radius: 10px; border-color: #e5ecff; font-size: 14px; padding: 12px 25px;">
+                                <option value="{{twelvePillar.office.id}}-{{twelvePillar.office.title}}">{{twelvePillar.office.title}}</option>   
+                            </select>
                         </div>
                         <div class="col-lg-12" style="margin-top: 10px;">
                             <input type="file" name="office_image" id="office_image" placeholder="Image File" value="{{twelvePillar.image}}"required />
