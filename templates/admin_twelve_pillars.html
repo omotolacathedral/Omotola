@@ -73,9 +73,9 @@
                     
                                     <thead>
                                         <tr>
-                                            <th scope="col">Office</th>
-                                            <th scope="col">Name</th>
                                             <th scope="col">Image</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Office</th>
                                             <th scope="col">Date Created</th>
                                             {% if user.is_superuser != False %}
                                                 <th>Created By</th>
@@ -86,9 +86,9 @@
                                     <tbody>
                                         {% for twelvePillar in twelvePillars %}
                                             <tr>
-                                                <td>{{twelvePillar.office}}</td>
+                                                <td><img src="data:image/jpg;base64,{{twelvePillar.image}}" alt="" width="50%" height="50px" style="border-radius: 10px;"></td>                                                
                                                 <td>{{twelvePillar.name}}</td>
-                                                <td><img src="data:image/jpg;base64,{{twelvePillar.image}}" alt="" width="50%" height="50px"></td>
+                                                <td>{{twelvePillar.office}}</td>
                                                 <td>{{twelvePillar.date_created}}</td>
                                                 {% if user.is_superuser != False %}
                                                     <td>{{twelvePillar.created_by}}</td>

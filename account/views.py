@@ -8,6 +8,287 @@ from base64converter import CustomInMemoryBase64Converter
 # Create your views here.
 
 
+def adminAnnouncement(request):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            announcement = Announcement.objects.filter(is_removed=False)
+            return render(request, "admin_announcement.html", {"announcements": announcement})
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def newAnnouncement(request):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            if request.method == "POST":
+                image_path = request.FILES.get('event_image')
+                image = CustomInMemoryBase64Converter(image_path)
+
+                user_id = request.session["userId"]
+                user = User.objects.get(pk = user_id)
+
+                announcement = Announcement(
+                    event_announcement=image,          
+                    created_by=user,
+                )
+                announcement.save()
+
+                messages.success(request, "Announcement saved successfully")
+                return redirect("new-announcement")
+                
+            else:
+                return render(request, "admin_new_announcement.html", {})
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def updateAnnouncement(request, id):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            if request.method=='POST':
+                image_path = request.FILES.get('event_image')
+                image = CustomInMemoryBase64Converter(image_path)
+
+                if len(image) != 0:
+                    announcement = Announcement.objects.filter(id = id).first()
+                    announcement.event_announcement=image
+                    announcement.save()
+
+                    messages.success(request, 'Announcement updated successfully')
+                    return redirect("admin-announcement")
+                return redirect("admin-announcement")
+
+            elif request.method=='GET':
+                announcement = Announcement.objects.get(pk = id)
+                return render(request, "admin_edit_announcement.html", {"announcement": announcement})
+
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def deleteAnnouncement(request, id):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            announcement = Announcement.objects.get(pk = id)
+            announcement.is_removed = True
+            announcement.save()
+
+            messages.error(request, 'Announcement Deleted')
+            return redirect("admin-announcement")                                                 
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+
+
+
+def adminEvent(request):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            event = Event.objects.filter(is_removed=False)
+            return render(request, "admin_event.html", {"events": event})
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def newEvent(request):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            if request.method == "POST":
+                periodic = request.POST["periodic_display"]
+                service = request.POST["service_display"]
+
+                user_id = request.session["userId"]
+                user = User.objects.get(pk = user_id)
+
+                event = Event(
+                    periodic_display=periodic,
+                    service_display=service,
+                    created_by=user,
+                )
+                event.save()
+
+                messages.success(request, "Event saved successfully")
+                return redirect("new-event")
+                
+            else:
+                return render(request, "admin_new_event.html", {})
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def updateEvent(request, id):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            if request.method=='POST':
+                periodic = request.POST["periodic_display"]
+                service = request.POST["service_display"]
+                
+                if len(periodic) != 0:
+                    event = Event.objects.filter(id = id).first()
+                    event.periodic_display=periodic
+                    event.service_display=service
+                    event.save()
+
+                    messages.success(request, 'Event updated successfully')
+                    return redirect("admin-event")
+                return redirect("admin-event")
+
+            elif request.method=='GET':
+                event = Event.objects.get(pk = id)
+                return render(request, "admin_edit_event.html", {"event": event})
+
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def deleteEvent(request, id):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            event = Event.objects.get(pk = id)
+            event.is_removed = True
+            event.save()
+
+            messages.error(request, 'Event Deleted')
+            return redirect("admin-event")                                                 
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+
+
+
+def adminBirthday(request):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            birthday = Birthday.objects.filter(is_removed=False)             
+            return render(request, "admin_birthday.html", {"birthdays": birthday})
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def newBirthday(request):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            if request.method == "POST":
+                image_path = request.FILES.get('birthday_image')
+                image = CustomInMemoryBase64Converter(image_path)
+
+                user_id = request.session["userId"]
+                user = User.objects.get(pk = user_id)
+
+                birthday = Birthday(
+                    image=image,          
+                    created_by=user,
+                )
+                birthday.save()
+
+                messages.success(request, "Celebrant saved successfully")
+                return redirect("new-birthday")
+            
+            else:
+                return render(request, "admin_new_birthday.html", {})
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def updateBirthday(request, id):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            if request.method=='POST':
+                image_path = request.FILES.get('birthday_image')
+                image = CustomInMemoryBase64Converter(image_path)
+                
+                if len(image) != 0:
+                    birthday = Birthday.objects.filter(id = id).first()
+                    birthday.image=image
+                    birthday.save()
+
+                    messages.success(request, 'Celebrant updated successfully')
+                    return redirect("admin-birthday")
+                return redirect("admin-birthday")
+
+            elif request.method=='GET':
+                birthday = Birthday.objects.get(pk = id)
+                return render(request, "admin_edit_birthday.html", {"birthday": birthday})
+
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+def deleteBirthday(request, id):
+    session_keys = list(request.session.keys())
+    if len(session_keys) != 0:
+        try:
+            birthday = Birthday.objects.get(pk = id)
+            birthday.is_removed = True
+            birthday.save()
+
+            messages.error(request, 'Celebrant Deleted')
+            return redirect("admin-birthday")                                                 
+        
+        except Exception as ex:
+            print(ex)
+
+    return redirect("login")
+
+
+
+
+
+
 def adminTestimony(request):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:
@@ -311,13 +592,13 @@ def deleteTwelvePillar(request, id):
 
 
 
-def adminBirthday(request):
+def adminSermonExcerpt(request):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:
         try:
-            birthday = Birthday.objects.filter(is_removed=False)             
-            return render(request, "admin_birthday.html", {"birthdays": birthday})
-        
+            sermonExcerpt = Sermon.objects.filter(is_removed=False).order_by("-date_created")
+            return render(request, "admin_sermon_excerpt.html", {"sermonExcerpts": sermonExcerpt})
+    
         except Exception as ex:
             print(ex)
 
@@ -325,28 +606,37 @@ def adminBirthday(request):
 
 
 
-def newBirthday(request):
+def newSermonExcerpt(request):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:
         try:
             if request.method == "POST":
-                image_path = request.FILES.get('birthday_image')
+                service_type = request.POST["service_type"]
+                image_path = request.FILES.get('sermoner_picture')
                 image = CustomInMemoryBase64Converter(image_path)
+
+                sermoner = request.POST["sermoner"]
+                topic = request.POST["topic"]
+                content = request.POST["content"]
 
                 user_id = request.session["userId"]
                 user = User.objects.get(pk = user_id)
 
-                birthday = Birthday(
-                    image=image,          
+                sermonExcerpt = Sermon(
+                    service_type=service_type,
+                    sermoner_picture=image,
+                    sermoner=sermoner,
+                    topic=topic,
+                    content=content,
                     created_by=user,
                 )
-                birthday.save()
+                sermonExcerpt.save()
 
-                messages.success(request, "Celebrant saved successfully")
-                return redirect("new-birthday")
-            
+                messages.success(request, "Sermon excerpt saved successfully")
+                return redirect("new-sermon-excerpt")
+                
             else:
-                return render(request, "admin_new_birthday.html", {})
+                return render(request, "admin_new_sermon_excerpt.html", {})
         
         except Exception as ex:
             print(ex)
@@ -355,214 +645,35 @@ def newBirthday(request):
 
 
 
-def updateBirthday(request, id):
+def updateSermonExcerpt(request, id):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:
         try:
             if request.method=='POST':
-                image_path = request.FILES.get('birthday_image')
-                image = CustomInMemoryBase64Converter(image_path)
-                
-                if len(image) != 0:
-                    birthday = Birthday.objects.filter(id = id).first()
-                    birthday.image=image
-                    birthday.save()
-
-                    messages.success(request, 'Celebrant updated successfully')
-                    return redirect("admin-birthday")
-                return redirect("admin-birthday")
-
-            elif request.method=='GET':
-                birthday = Birthday.objects.get(pk = id)
-                return render(request, "admin_edit_birthday.html", {"birthday": birthday})
-
-        except Exception as ex:
-            print(ex)
-
-    return redirect("login")
-
-
-
-def deleteBirthday(request, id):
-    session_keys = list(request.session.keys())
-    if len(session_keys) != 0:
-        try:
-            birthday = Birthday.objects.get(pk = id)
-            birthday.is_removed = True
-            birthday.save()
-
-            messages.error(request, 'Celebrant Deleted')
-            return redirect("admin-birthday")                                                 
-        
-        except Exception as ex:
-            print(ex)
-
-    return redirect("login")
-
-
-
-
-
-
-def adminEvent(request):
-    session_keys = list(request.session.keys())
-    if len(session_keys) != 0:
-        try:
-            event = Event.objects.filter(is_removed=False)
-            return render(request, "admin_event.html", {"events": event})
-        
-        except Exception as ex:
-            print(ex)
-
-    return redirect("login")
-
-
-
-def newEvent(request):
-    session_keys = list(request.session.keys())
-    if len(session_keys) != 0:
-        try:
-            if request.method == "POST":
-                periodic = request.POST["periodic_display"]
-                service = request.POST["service_display"]
-
-                user_id = request.session["userId"]
-                user = User.objects.get(pk = user_id)
-
-                event = Event(
-                    periodic_display=periodic,
-                    service_display=service,
-                    created_by=user,
-                )
-                event.save()
-
-                messages.success(request, "Event saved successfully")
-                return redirect("new-event")
-                
-            else:
-                return render(request, "admin_new_event.html", {})
-        
-        except Exception as ex:
-            print(ex)
-
-    return redirect("login")
-
-
-
-def updateEvent(request, id):
-    session_keys = list(request.session.keys())
-    if len(session_keys) != 0:
-        try:
-            if request.method=='POST':
-                periodic = request.POST["periodic_display"]
-                service = request.POST["service_display"]
-                
-                if len(periodic) != 0:
-                    event = Event.objects.filter(id = id).first()
-                    event.periodic_display=periodic
-                    event.service_display=service
-                    event.save()
-
-                    messages.success(request, 'Event updated successfully')
-                    return redirect("admin-event")
-                return redirect("admin-event")
-
-            elif request.method=='GET':
-                event = Event.objects.get(pk = id)
-                return render(request, "admin_edit_event.html", {"event": event})
-
-        except Exception as ex:
-            print(ex)
-
-    return redirect("login")
-
-
-
-def deleteEvent(request, id):
-    session_keys = list(request.session.keys())
-    if len(session_keys) != 0:
-        try:
-            event = Event.objects.get(pk = id)
-            event.is_removed = True
-            event.save()
-
-            messages.error(request, 'Event Deleted')
-            return redirect("admin-event")                                                 
-        
-        except Exception as ex:
-            print(ex)
-
-    return redirect("login")
-
-
-
-
-
-
-def adminAnnouncement(request):
-    session_keys = list(request.session.keys())
-    if len(session_keys) != 0:
-        try:
-            announcement = Announcement.objects.filter(is_removed=False)
-            return render(request, "admin_announcement.html", {"announcements": announcement})
-        
-        except Exception as ex:
-            print(ex)
-
-    return redirect("login")
-
-
-
-def newAnnouncement(request):
-    session_keys = list(request.session.keys())
-    if len(session_keys) != 0:
-        try:
-            if request.method == "POST":
-                image_path = request.FILES.get('event_image')
+                service_type = request.POST["service_type"]
+                image_path = request.FILES.get('sermoner_picture')
                 image = CustomInMemoryBase64Converter(image_path)
 
-                user_id = request.session["userId"]
-                user = User.objects.get(pk = user_id)
-
-                announcement = Announcement(
-                    event_announcement=image,          
-                    created_by=user,
-                )
-                announcement.save()
-
-                messages.success(request, "Announcement saved successfully")
-                return redirect("new-announcement")
+                sermoner = request.POST["sermoner"]
+                topic = request.POST["topic"]
+                content = request.POST["content"]
                 
-            else:
-                return render(request, "admin_new_announcement.html", {})
-        
-        except Exception as ex:
-            print(ex)
+                if len(sermoner) and len(content) != 0:
+                    sermonExcerpt = Sermon.objects.filter(id = id).first()
+                    sermonExcerpt.service_type=service_type
+                    sermonExcerpt.sermoner_picture=image
+                    sermonExcerpt.sermoner=sermoner
+                    sermonExcerpt.topic=topic
+                    sermonExcerpt.content=content
+                    sermonExcerpt.save()
 
-    return redirect("login")
-
-
-
-def updateAnnouncement(request, id):
-    session_keys = list(request.session.keys())
-    if len(session_keys) != 0:
-        try:
-            if request.method=='POST':
-                image_path = request.FILES.get('event_image')
-                image = CustomInMemoryBase64Converter(image_path)
-
-                if len(image) != 0:
-                    announcement = Announcement.objects.filter(id = id).first()
-                    announcement.event_announcement=image
-                    announcement.save()
-
-                    messages.success(request, 'Announcement updated successfully')
-                    return redirect("admin-announcement")
-                return redirect("admin-announcement")
+                    messages.success(request, 'Sermon excerpt updated successfully')
+                    return redirect("admin-sermon-excerpt")
+                return redirect("admin-sermon-excerpt")
 
             elif request.method=='GET':
-                announcement = Announcement.objects.get(pk = id)
-                return render(request, "admin_edit_announcement.html", {"announcement": announcement})
+                sermonExcerpt = Sermon.objects.get(pk = id)
+                return render(request, "admin_edit_sermon_excerpt.html", {"sermonExcerpt": sermonExcerpt})
 
         except Exception as ex:
             print(ex)
@@ -571,16 +682,16 @@ def updateAnnouncement(request, id):
 
 
 
-def deleteAnnouncement(request, id):
+def deleteSermonExcerpt(request, id):
     session_keys = list(request.session.keys())
     if len(session_keys) != 0:
         try:
-            announcement = Announcement.objects.get(pk = id)
-            announcement.is_removed = True
-            announcement.save()
+            sermonExcerpt = Sermon.objects.get(pk = id)
+            sermonExcerpt.is_removed = True
+            sermonExcerpt.save()
 
-            messages.error(request, 'Announcement Deleted')
-            return redirect("admin-announcement")                                                 
+            messages.error(request, 'Sermon Excerpt Deleted')
+            return redirect("admin-sermon-excerpt")                                                 
         
         except Exception as ex:
             print(ex)

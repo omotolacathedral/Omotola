@@ -76,28 +76,31 @@
                     <li class="nav-item {% if request.resolver_match.view_name == 'testimonies' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'testimonies' %}">Testimonies</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item {% if request.resolver_match.view_name == 'picture' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'picture' %}">Pictures</a>
+                    </li>
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle d-flex justify-content-between align-items-center" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-1">Gallery</span>
                             <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.06L7.94 0L4.5 3.44L1.06 0L0 1.06L4.5 5.56L9 1.06Z" fill="currentColor"/></svg>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item @@pricingOne" href="#">Pictures</a></li>
+                            <li><a class="dropdown-item @@pricingOne" href="{% url 'picture' %}">Pictures</a></li>
                             <li><a class="dropdown-item @@pricingTwo" href="#">Videos</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item {% if request.resolver_match.view_name == 'contact' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                     </li>
-                    <li class="nav-item dropdown @@pages">
+                    <li class="nav-item dropdown {% if request.resolver_match.view_name == 'four-corners' %}active{% elif request.resolver_match.view_name == 'twelve-pillars' %}active{% elif request.resolver_match.view_name == 'sermon-excerpts' %}active{% endif %}">
                         <a class="nav-link dropdown-toggle d-flex justify-content-between align-items-center" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-1">Pages</span>
                             <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.06L7.94 0L4.5 3.44L1.06 0L0 1.06L4.5 5.56L9 1.06Z" fill="currentColor"/></svg>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item @@howItWorks" href="{% url 'four-corners' %}">The Four Corners</a></li>
-                            <li><a class="dropdown-item @@team" href="{% url 'twelve-pillars' %}">The Twelve Pillars</a></li>
-                            <li><a class="dropdown-item @@team" href="#">Sermon Excerpts</a></li>
+                            <li><a class="dropdown-item {% if request.resolver_match.view_name == 'four-corners' %}active{% endif %}" href="{% url 'four-corners' %}">The Four Corners</a></li>
+                            <li><a class="dropdown-item {% if request.resolver_match.view_name == 'twelve-pillars' %}active{% endif %}" href="{% url 'twelve-pillars' %}">The Twelve Pillars</a></li>
+                            <li><a class="dropdown-item {% if request.resolver_match.view_name == 'sermon-excerpts' %}active{% endif %}" href="{% url 'sermon-excerpts' %}">Sermon Excerpts</a></li>
                         </ul>
                     </li>
                 </ul>

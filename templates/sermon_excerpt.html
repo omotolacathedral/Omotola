@@ -1,110 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 
-<!-- strat of blog-details -->
+<style>
+    #service_type a:hover, #sermoner a:hover{
+        text-decoration: none;
+    }
+
+    #sermoner{
+        color: #ff3158;
+    }
+</style>
+
+<!-- start of page-header -->
+<section class="page-header bg-light-gray has-shapes has-bg-brash bg-brash-bottom" style="background-image: url({% static 'images/brushes/banner.svg' %});">
+    <div class="container h-100">
+        <div class="row d-flex align-items-center h-100">
+            <div class="col-md-12 text-center">
+                <h2 class="h1 font-weight-bold">Sermon Excerpts</h2>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end of page-header -->
+
+<!-- start of blog-details -->
 <section class="section-padding pt-50">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 col-md-12 mb-30" data-aos="fade-in">
-                <img class="img-fluid rounded" src="{% static 'images/blogs/details/01.jpg' %}" alt="">
+                <img class="img-fluid rounded" src="data:image/jpg;base64,{{excerpt.sermoner_picture}}" width="100%" height="auto" alt="sermoner">
             </div>
             <div class="col-lg-9 col-md-12 mb-60" data-aos="fade-in" data-aos-delay="50">
-                <div class="post-category position-relative mb-15">
-                    <a class="text-black-200 font-weight-600" href="#!">Lifestyle</a>
+                <div class="post-category position-relative mb-15" id="service_type">
+                    <a class="text-black-200 font-weight-600">{{excerpt.service_type}}</a>
                 </div>
 
-                <h2 class="font-weight-bold mb-30">Customer Engage Marketing Marketing Strategy to Economy Structure Everyone.</h2>
+                <h2 class="font-weight-bold mb-30">{{excerpt.topic}}</h2>
 
-                <div class="post-meta font-weight-600 text-primary mb-15">
-                    <a class="text-primary" href="#!">Ausie Makquis</a>
+                <div class="post-meta font-weight-600 text-primary mb-15" id="sermoner">
+                    <a class="text-primary">Minister: <strong>{{excerpt.sermoner}}</strong></a>
                     <span class="mx-2">|</span>
-                    <span>03/07/17</span>
-                    <span class="mx-2">|</span>
-                    <span>10 Mins Read</span>
+                    <span>{{excerpt.date_created|naturalday}}</span>
                 </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent</p>
-                <p class="mb-20">Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget</p>
-
-                <p>pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet Faucibus consectetur tempus adipiscing vitae. Nec blandit tincidunt nibh nisi, quam volutpat. In lacus laoreet diam risus. Mauris, risus faucibus sagittis sagittis tincidunt id justo. Diam massa pretium consequat mauris viverra. Sagittis eu libero</p>
-
-                <blockquote class="post-blockquote">
-                    <h3 class="text-black-200 font-weight-600">A wise girls  her limit to touch sky. Repellat neque praesentium adipisci. This is an idea, this is as quickly.</h3>
-                    <p class="h4 mt-20 text-black-500 font-weight-600">- Andrew Saymond</p>
-                </blockquote>
-                <!-- end /blockquote -->
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec et ipsum ullamcorper venenatis fringilla. Pretium, purus eu nec vulputate vel habitant egestas. Congue ornare at ipsum, viverra. Vitae magna faucibus eros, lectus sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit in ornare turpis posuere. Eu quisque integer non rhoncus elementum vel. Quis nec viverra lectus augue nec praesent volutpat tortor. Ipsum eget sed tempus luctus nisl. Ut etiam molestie mattis at faucibus mi at pellentesque. Pellentesque morbi nunc, curabitur arcu euismod suscipit. Duis mi sapien, donec non dictum </p>
-                <p class="mt-20">Laoreet mauris odio ut nec. Nisl, sed adipiscing dignissim arcu placerat ornare pharetra nec in. Ultrices in nisl potenti vitae tempus. Auctor consectetur luctus eu in amet sagittis. Dis urna, vel hendrerit convallis cursus id.</p>
-                <p>Senectus feugiat faucibus commodo egestas leo vitae in morbi. Enim arcu dignissim mauris, eu, eget pharetra odio amet pellentesque. Egestas nisi adipiscing sed in lectus. Vitae ultrices malesuada aliquet dignissim. Faucibus non tristique eu.</p>
-            </div>
-            <div class="col-lg-9 col-md-12" data-aos="fade-in">
-                <div class="mb-60">
-                    <h3 class="text-black-200 font-weight-600 mb-30">Comments</h3>
-
-                    <div class="media d-block d-sm-flex border-bottom mb-30 pb-30">
-                        <a class="d-inline-block mr-2 mb-3 mb-md-0" href="#">
-                            <img src="{% static 'images/blogs/details/user-01.jpg' %}" class="mr-3 rounded-circle" alt="">
-                        </a>
-                        <div class="media-body">
-                            <a href="#!" class="h4 d-block font-weight-600 mb-10">Alexender Grahambel</a>
-                            <span class="text-black-800 mr-3 font-weight-600">April 18, 2020 at 6.25 pm</span>
-                            <a class="text-primary font-weight-600" href="#!">Reply</a>
-
-                            <p class="mt-15">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                        </div>
-                    </div>
-                    <div class="media d-block d-sm-flex">
-                        <div class="d-inline-block mr-2 mb-3 mb-md-0" href="#">
-                            <img class="mr-3" src="{% static 'images/blogs/details/arrow.png' %}" alt="">
-                            <a href="#!"><img src="{% static 'images/blogs/details/user-02.jpg' %}" class="mr-3 rounded-circle" alt=""></a>
-                        </div>
-                        <div class="media-body">
-                            <a href="#!" class="h4 d-block font-weight-600 mb-10">Nadia Sultana Tisa</a>
-                            <span class="text-black-800 mr-3 font-weight-600">April 18, 2020 at 6.25 pm</span>
-                            <a class="text-primary font-weight-600" href="#!">Reply</a>
-
-                            <p class="mt-15">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div data-aos="fade-in">
-                    <h3 class="text-black-200 font-weight-600 mb-30">Leave a Reply</h3>
-
-                    <form method="POST" class="needs-validation" novalidate>
-                        <div class="row">
-                            <div class="form-group mb-30 col-md-12">
-                                <textarea class="form-control shadow-none" name="comment" rows="7" required></textarea>
-                                <p class="font-weight-bold invalid-feedback">Your comment is required!</p>
-                            </div>
-                            <div class="form-group mb-30 col-md-4">
-                                <input class="form-control shadow-none" type="text" placeholder="Name" required>
-                                <p class="font-weight-bold invalid-feedback">Your name is required!</p>
-                            </div>
-                            <div class="form-group mb-30 col-md-4">
-                                <input class="form-control shadow-none" type="email" placeholder="Email" required>
-                                <p class="font-weight-bold invalid-feedback">Your email is required!</p>
-                            </div>
-                            <div class="form-group mb-30 col-md-4">
-                                <input class="form-control shadow-none" type="url" placeholder="Website">
-                                <p class="font-weight-bold valid-feedback">OK! You can skip this field.</p>
-                                <p class="font-weight-bold invalid-feedback">ex: https://Copper.io/</p>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="save-info" checked>
-                                    <label for="save-info" class="custom-control-label" role="button">Save my name, email, and website in this browser for the next time I comment.</label>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary has-icon mt-30" type="submit">Comment Now
-                            <span class="icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5522 6.66669L20.5522 14.6667C21.0329 15.1473 21.0699 15.9036 20.6632 16.4267L20.5522 16.5523L12.5522 24.5523L10.6666 22.6667L17.7228 15.6095L10.6666 8.55231L12.5522 6.66669Z" fill="currentColor"/></svg></span>
-                        </button>
-                    </form>
-                </div>
+                <p class="text-justify">{{excerpt.content}}</p>
             </div>
         </div>
     </div>
@@ -116,58 +58,27 @@
     <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
             <div class="col-lg-6 col-md-9 text-center mb-40">
-                <h2 class="section-title">More <strong>Related Articles</strong></h2>
+                <h2 class="section-title">More <strong>Related Sermon Excerpts</strong></h2>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100" data-aos="fade-up" data-aos-delay="50">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/01.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Lifestyle</a>
+            {% for related_excerpt in related_excerpts %}
+                <div class="col-lg-4 col-md-6 mb-40">
+                    <div class="card border-0 h-100" data-aos="fade-up" data-aos-delay="50">
+                        <a class="d-flex flex-fill align-items-center" href="{% url 'sermon-excerpts-byId' related_excerpt.id %}"><img class="card-img-top rounded" src="data:image/jpg;base64,{{related_excerpt.sermoner_picture}}" width="50%" height="270px" alt="sermoner"></a>
+                        <div class="p-25 pb-0">
+                            <div class="post-category position-relative mb-15" id="service_type">
+                                <a class="text-black-200 font-weight-600" href="{% url 'sermon-excerpts-byId' related_excerpt.id %}">{{related_excerpt.service_type}}</a>
+                            </div>
+                            <a class="h4 font-weight-bold d-block mb-15" href="{% url 'sermon-excerpts-byId' related_excerpt.id %}" id="topic">{{related_excerpt.topic}}</a>
+                            <div class="post-meta font-weight-600 mb-15" id="sermoner">
+                                {{related_excerpt.date_created|naturaltime}}<span class="mx-2">|</span>{{related_excerpt.sermoner}}
+                            </div>
+                            <p class="text-justify">{{related_excerpt.content|safe|linebreaks|truncatewords:30}}</p>
                         </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
                     </div>
                 </div>
-                <!-- blog-post item -->
-            </div>
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100" data-aos="fade-up" data-aos-delay="100">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/02.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Technology</a>
-                        </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
-                    </div>
-                </div>
-                <!-- blog-post item -->
-            </div>
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100" data-aos="fade-up" data-aos-delay="150">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/03.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Lifestyle</a>
-                        </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
-                    </div>
-                </div>
-                <!-- blog-post item -->
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

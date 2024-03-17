@@ -21,7 +21,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9 text-center mb-30">
                 <!-- <h2 class="font-weight-bold mb-20"><span class="font-weight-light"></span> Testimonies</h2> -->
-                <p class="h5">
+                <p class="h5" style="font-size: 17px;">
                     Experience the power of divine transformation through the heartfelt testimonies of our congregation and discover the profound impact of grace in action
                 </p>
             </div>
@@ -34,7 +34,13 @@
                     <div class="testimonials-item bg-white">
                         <div class="block border rounded bg-white">
                             <svg class="icon mb-15" width="25" height="10" viewBox="0 0 40 35" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.75001 35L13.75 35C15.8203 35 17.5 33.3203 17.5 31.25L17.5 21.25C17.5 19.1797 15.8203 17.5 13.75 17.5L7.50001 17.5L7.50001 12.5C7.50001 9.74219 9.74219 7.5 12.5 7.5L13.125 7.5C14.1641 7.5 15 6.66406 15 5.625L15 1.875C15 0.83594 14.1641 2.25865e-06 13.125 2.34949e-06L12.5 2.40413e-06C5.59375 3.00789e-06 5.05862e-06 5.59375 5.66238e-06 12.5L7.30156e-06 31.25C7.48255e-06 33.3203 1.6797 35 3.75001 35ZM26.25 35L36.25 35C38.3203 35 40 33.3203 40 31.25L40 21.25C40 19.1797 38.3203 17.5 36.25 17.5L30 17.5L30 12.5C30 9.74219 32.2422 7.5 35 7.5L35.625 7.5C36.6641 7.5 37.5 6.66406 37.5 5.625L37.5 1.875C37.5 0.835938 36.6641 2.91637e-07 35.625 3.82475e-07L35 4.37114e-07C28.0937 1.04088e-06 22.5 5.59375 22.5 12.5L22.5 31.25C22.5 33.3203 24.1797 35 26.25 35Z" fill="currentColor"/></svg>
-                            <p class="h6 text-black-300 font-weight-light">{{testimony.testimony_content}}</p>
+                            <!-- <p class="h6 text-black-300 font-weight-light">{{testimony.testimony_content}}</p> -->
+
+                            {% if testimony.testimony_content %}
+                                <h6 id="half-{{ testimony.id }}">{{ testimony.testimony_content|safe|linebreaks|truncatewords:30 }}<a href="javascript:void();" onclick="testimony(event, '{{testimony.id}}')">Read more</a></h6>
+                                <h6 id="full-{{ testimony.id }}" style="display: none;">{{ testimony.testimony_content|safe|linebreaks }}<a href="javascript:void();" onclick="lessTestimony(event, '{{testimony.id}}')">Read less</a></h6>
+                            {% endif %}
+
                             <img src="{% static 'images/testimonials/arrow.png' %}" alt="">
                         </div>
                         <div class="user-info d-flex align-items-center mt-30">
@@ -51,6 +57,18 @@
     </div>
 </section>
 <!-- end of testimonials-section -->
+
+<script>
+    function testimony(event, id){
+        document.getElementById("half-" + id).style.display="none"
+        $("#full-" + id).toggle();
+    }
+
+    function lessTestimony(event, id){
+        document.getElementById("full-" + id).style.display="none"
+        $("#half-" + id).toggle();
+    }
+</script>
 
 
 {% endblock %}

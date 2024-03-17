@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 
 {% block content %}
 
+<style>
+    #service_type a:hover, #sermoner a:hover{
+        text-decoration: none;
+    }
+
+    #sermoner{
+        color: #ff3158 !important;
+    }
+</style>
+
 <!-- start of page-header -->
-<section class="page-header bg-light-gray has-shapes has-bg-brash bg-brash-bottom" style="background-image:url(images/brushes/banner.svg)">
+<section class="page-header bg-light-gray has-shapes has-bg-brash bg-brash-bottom" style="background-image: url({% static 'images/brushes/banner.svg' %});">
     <div class="container h-100">
         <div class="row d-flex align-items-center h-100">
             <div class="col-md-12 text-center">
@@ -20,107 +31,29 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-9 text-center mb-40">
-                <h2 class="section-title">Find A <strong>Source Of Knowledge</strong></h2>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed.</p>
+                <h2 class="section-title">Find A Source To <strong>Eternal Living</strong></h2>
+                <p style="font-size: 17px;">"Now, take root downward in the Word, that you may bear fruit upward therein..." - Isaiah 37:31</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/01.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Lifestyle</a>
+            {% for excerpt in excerpts %}
+                <div class="col-lg-4 col-md-6 mb-40">
+                    <div class="card border-0 h-100">
+                        <a class="d-flex flex-fill align-items-center" href="{% url 'sermon-excerpts-byId' excerpt.id %}"><img class="card-img-top rounded" src="data:image/jpg;base64,{{excerpt.sermoner_picture}}" width="50%" height="270px" alt="sermoner"></a>
+                        <div class="p-25 pb-0">
+                            <div class="post-category position-relative mb-15" id="service_type">
+                                <a class="text-black-200 font-weight-600" href="{% url 'sermon-excerpts-byId' excerpt.id %}">{{excerpt.service_type}}</a>
+                            </div>
+                            <a class="h4 font-weight-bold d-block mb-15" href="{% url 'sermon-excerpts-byId' excerpt.id %}">{{excerpt.topic}}</a>
+                            <div class="post-meta font-weight-600 mb-15" id="sermoner">
+                                {{excerpt.date_created|naturaltime}}<span class="mx-2">|</span>{{excerpt.sermoner}}
+                            </div>
+                            <p class="text-justify">{{excerpt.content|safe|linebreaks|truncatewords:30}}</p>
                         </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
                     </div>
+                    <!-- blog-post item -->
                 </div>
-                <!-- blog-post item -->
-            </div>
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/02.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Technology</a>
-                        </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
-                    </div>
-                </div>
-                <!-- blog-post item -->
-            </div>
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/03.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Lifestyle</a>
-                        </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
-                    </div>
-                </div>
-                <!-- blog-post item -->
-            </div>
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/04.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Lifestyle</a>
-                        </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
-                    </div>
-                </div>
-                <!-- blog-post item -->
-            </div>
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/05.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Technology</a>
-                        </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
-                    </div>
-                </div>
-                <!-- blog-post item -->
-            </div>
-            <div class="col-lg-4 col-md-6 mb-40">
-                <div class="card border-0 h-100">
-                    <a class="d-flex flex-fill align-items-center" href="blog-details.html"><img class="card-img-top rounded" src="images/blogs/06.jpg" alt="blog-image"></a>
-                    <div class="p-25 pb-0">
-                        <div class="post-category position-relative mb-15">
-                            <a class="text-black-200 font-weight-600" href="#!">Lifestyle</a>
-                        </div>
-                        <a class="h4 font-weight-bold d-block mb-15" href="blog-details.html">Your ‘Surge Capacity’ Is Depleted It’s Why You Feel Awful to The Society</a>
-                        <div class="post-meta font-weight-600 mb-15">
-                            21 Jan, 2020<span class="mx-2">|</span>10 Mins Read
-                        </div>
-                        <p>Lorem ipsum dolor amet, consectetur adipiscing Pretium, purus eu nec vulputate vel habitant</p>
-                    </div>
-                </div>
-                <!-- blog-post item -->
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

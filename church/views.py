@@ -11,18 +11,31 @@ from datetime import datetime, timezone
 def home(request):
     try:
         birthday = Birthday.objects.filter(is_removed=False)
-        announcement = Announcement.objects.filter(is_removed=False)[0]
         testimony = Testimony.objects.filter(is_removed=False).order_by('-date_created')[:4]
         event = Event.objects.first()
+        announcement = Announcement.objects.filter(is_removed=False)
 
-        date_created = event.date_created.strftime('%A')
-        current_date = datetime.now(timezone.utc).strftime('%A')
+        if len(announcement) != 0:
+            announcement = Announcement.objects.filter(is_removed=False)[0]
 
-        if date_created != current_date:
-            event.service_display = None
-            event.save()
-        
-        return render(request, "index.html", {"event": event, "testimonys": testimony, "birthdays": birthday, "announcement": announcement})
+            date_created = event.date_created.strftime('%A')
+            current_date = datetime.now(timezone.utc).strftime('%A')
+
+            if date_created != current_date:
+                event.service_display = None
+                event.save()
+            
+            return render(request, "index.html", {"event": event, "testimonys": testimony, "birthdays": birthday, "announcement": announcement})
+
+        else:
+            date_created = event.date_created.strftime('%A')
+            current_date = datetime.now(timezone.utc).strftime('%A')
+
+            if date_created != current_date:
+                event.service_display = None
+                event.save()
+            
+            return render(request, "index.html", {"event": event, "testimonys": testimony, "birthdays": birthday})
     
     except Exception as ex:
         print(ex)
@@ -41,6 +54,15 @@ def about(request):
 def contact(request):
     try:
         return render(request, "contact.html")
+    
+    except Exception as ex:
+        print(ex)
+
+
+
+def picture(request):
+    try:
+        return render(request, "picture.html")
     
     except Exception as ex:
         print(ex)
@@ -67,6 +89,15 @@ def services(request):
 
 
 
+def fourCorners(request):
+    try:
+        return render(request, "four-corners.html")
+    
+    except Exception as ex:
+        print(ex)
+
+
+
 def twelvePillars(request):
     try:
         pillar = Team.objects.filter(is_removed=False).order_by('date_created')
@@ -77,10 +108,23 @@ def twelvePillars(request):
 
 
 
-def fourCorners(request):
+def sermonExcerpt(request):
     try:
-        return render(request, "four-corners.html")
-    
+        excerpt = Sermon.objects.filter(is_removed=False).order_by('-date_created')[:12]
+        return render(request, "sermon.html", {"excerpts": excerpt})
+
+    except Exception as ex:
+        print(ex)
+
+
+
+def sermonExcerptById(request, id):
+    try:
+        excerpt = Sermon.objects.get(pk = id)
+        related_excerpt = Sermon.objects.filter(is_removed=False).order_by('-date_created')[:3]
+        
+        return render(request, "sermon_excerpt.html", {"excerpt": excerpt, "related_excerpts": related_excerpt})
+
     except Exception as ex:
         print(ex)
 

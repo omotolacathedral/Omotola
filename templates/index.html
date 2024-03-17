@@ -5,24 +5,26 @@
 
 
 <!-- Modal -->
-<div class="modal" tabindex="-1" id="exampleModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: transparent; border: none;">
-            <div class="modal-header" style="border: none;">
-                <h5 class="modal-title" style="visibility: hidden;">Announcement</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #fff;"></button>
-            </div>
-            <div class="modal-body">
-                <!-- <iframe src="https://drive.google.com/file/d/1-SJUvYnGM-wv3dsqopSDhD6rQ3mtX0b7/preview" width="100%" height="400" allow="autoplay"></iframe> -->
-                <img src="data:image/jpg;base64,{{announcement.event_announcement}}" width="100%" height="auto" alt="" >
-            </div>
-            <div class="modal-footer" style="visibility: hidden;">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+{% if announcement %}
+    <div class="modal" tabindex="-1" id="exampleModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: transparent; border: none;">
+                <div class="modal-header" style="border: none;">
+                    <h5 class="modal-title" style="visibility: hidden;">Announcement</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #fff;"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- <iframe src="https://drive.google.com/file/d/1-SJUvYnGM-wv3dsqopSDhD6rQ3mtX0b7/preview" width="100%" height="400" allow="autoplay"></iframe> -->
+                    <img src="data:image/jpg;base64,{{announcement.event_announcement}}" width="100%" height="auto" alt="" >
+                </div>
+                <div class="modal-footer" style="visibility: hidden;">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+{% endif %}
 
 <!-- start of banner -->
 <section class="banner bg-cover-bottom has-shapes bg-light-gray has-bg-brash bg-brash-bottom" style="background-image: url({% static 'images/brushes/banner.svg' %})" data-aos="fade-in" data-aos-delay="150">
