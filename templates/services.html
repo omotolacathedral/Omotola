@@ -141,7 +141,7 @@
                                     <h6 id="full-{{ testimony.id }}" style="display: none;">{{ testimony.testimony_content|safe|linebreaks }}<a href="javascript:void();" onclick="lessTestimony(event, '{{testimony.id}}')">Read less</a></h6>
                                 {% endif %}
                                 
-                                <img src="{% static 'images/testimonials/arrow.png' %}" alt="">
+                                <img src="{% static 'images/testimonials/arrow.png' %}" alt="testimony">
                                 <style>
                                     #read:hover{
                                         color: black !important;

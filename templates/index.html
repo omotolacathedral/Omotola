@@ -16,7 +16,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- <iframe src="https://drive.google.com/file/d/1-SJUvYnGM-wv3dsqopSDhD6rQ3mtX0b7/preview" width="100%" height="400" allow="autoplay"></iframe> -->
-                    <img src="data:image/jpg;base64,{{announcement.event_announcement}}" width="100%" height="auto" alt="" >
+                    <img src="data:image/webp;base64,{{announcement.event_announcement}}" width="100%" height="auto" alt="announcement" style="border-radius: 10px;">
                 </div>
                 <div class="modal-footer" style="visibility: hidden;">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -39,7 +39,7 @@
                     <button type="button" class="video-play-btn" data-toggle="modal" data-src="{{event.periodic_display}}" data-target="#videoModal"><svg width="1.8em" height="1.8em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/></svg></button>
                     {% endif %}
 
-                    <img class="img-fluid" src="{% static 'images/lp.png' %}" alt="omotola-cathedral" style="height: auto; width: 100%;">
+                    <img class="img-fluid" src="{% static 'images/index/omotola.webp' %}" alt="omotola-cathedral" style="height: auto; width: 100%;">
                     
                 </div>
             </div>
@@ -65,25 +65,25 @@
             <div class="col-md-12" data-aos="fade-left">
                 <div class="brand-carousel">
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/omotola_cathedral.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/omotola-cathedral.webp' %}" alt="omotola-cathedral"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/paradise_global.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/paradise-global.webp' %}" alt="paradise-global"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/luli_concert.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/luli-concert.webp' %}" alt="luli-concert"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/ghana_hq.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/ghana-hq.webp' %}" alt="ghana-hq"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/ogbomoso_hq.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/ogbomoso-hq.webp' %}" alt="ogbomoso-hq"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/sharon_parish.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/sharon-parish.webp' %}" alt="sharon-parish"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/ikorodu_road.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/ikorodu-road.webp' %}" alt="ikorodu"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/omotola_cathedral.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/omotola-cathedral.webp' %}" alt="omotola-cathedral"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/seminary.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/seminary.webp' %}" alt="seminary"></div>
                     <div class="brand-item d-flex align-items-center justify-content-center">
-                        <img class="img-fluid" src="{% static 'images/genesis_global.png' %}" alt=""></div>
+                        <img class="img-fluid" src="{% static 'images/organizations/genesis-global.webp' %}" alt="genesis-global"></div>
                 </div>
             </div>
         </div>
@@ -128,7 +128,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-8 anim-to-top">
                                 <!-- <img class="img-fluid rounded-lg shadow" src="{% static 'images/screenshots/how-it-works-1.jpg' %}" alt=""> -->
-                                <img class="img-fluid rounded-lg shadow" src="{% static 'images/media-unit.png' %}" alt="evangelist" style="border-radius: 15px !important;">  <!-- style="width: 98%; height:350px;" -->
+                                <img class="img-fluid rounded-lg shadow" src="{% static 'images/four-corners/media-unit.webp' %}" alt="evangelist" style="border-radius: 15px !important;">  <!-- style="width: 98%; height:350px;" -->
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 anim-to-bottom" style="padding-left: 20px;">
                                 <h2 class="section-title"> <strong>Evangelism</strong></h2>
@@ -142,7 +142,7 @@
                     <div class="tab-pane fade" id="chat-tab" role="tabpanel" aria-labelledby="pill-chat-tab">
                         <div class="row align-items-center">
                             <div class="col-lg-8 anim-to-top">
-                                <img class="img-fluid rounded-lg shadow" src="{% static 'images/prophetic.jpg' %}" alt="prophet" style="border-radius: 15px !important;">
+                                <img class="img-fluid rounded-lg shadow" src="{% static 'images/four-corners/prophetic.webp' %}" alt="prophet" style="border-radius: 15px !important;">
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 anim-to-bottom">
                                 <h2 class="section-title"> <strong>Prophet & Prophetess</strong></h2>
@@ -156,7 +156,7 @@
                     <div class="tab-pane fade" id="analytics-tab" role="tabpanel" aria-labelledby="pill-analytics-tab">
                         <div class="row align-items-center">
                             <div class="col-lg-8 anim-to-top">
-                                <img class="img-fluid rounded-lg shadow" src="{% static 'images/choir.jpg' %}" alt="choir" style="border-radius: 15px !important;">
+                                <img class="img-fluid rounded-lg shadow" src="{% static 'images/four-corners/choir.webp' %}" alt="choir" style="border-radius: 15px !important;">
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 anim-to-bottom">
                                 <h2 class="section-title"> <strong>Choir</strong></h2>
@@ -170,7 +170,7 @@
                     <div class="tab-pane fade" id="collaboration-tab" role="tabpanel" aria-labelledby="pill-collaboration-tab">
                         <div class="row align-items-center">
                             <div class="col-lg-8 anim-to-top">
-                                <img class="img-fluid rounded-lg shadow" src="{% static 'images/sidemen.jpg' %}" alt="sidemen" style="border-radius: 15px !important;">
+                                <img class="img-fluid rounded-lg shadow" src="{% static 'images/four-corners/sidemen.webp' %}" alt="sidemen" style="border-radius: 15px !important;">
                             </div>
                             <div class="col-lg-4 mt-4 mt-lg-0 anim-to-bottom">
                                 <h2 class="section-title"> <strong>Sidemen & Sidewomen</strong></h2>
@@ -204,28 +204,28 @@
             <div class="col-lg-6">
                 <ul class="inCircle-tools d-block d-sm-flex align-items-center justify-content-center" id="inCircle-element">
                     <li class="has-centered lg d-inline-flex align-items-center justify-content-center bg-white shadow rounded-circle">
-                        <img src="{% static 'images/b2.png' %}" alt="">
+                        <img src="{% static 'images/index/elevator.webp' %}" alt="">
                     </li>
                     <li class="md d-inline-flex align-items-center justify-content-center bg-white shadow rounded-circle">
-                        <img src="{% static 'images/b3.png' %}" alt="">
+                        <img src="{% static 'images/index/elevator-2.webp' %}" alt="">
                     </li>
                     <li class="xs d-inline-flex align-items-center justify-content-center bg-white shadow rounded-circle">
-                        <img src="{% static 'images/b4.png' %}" alt="">
+                        <img src="{% static 'images/index/elevator-3.webp' %}" alt="">
                     </li>
                     <li class="md d-inline-flex align-items-center justify-content-center bg-white shadow rounded-circle">
-                        <img src="{% static 'images/b5.png' %}" alt="">
+                        <img src="{% static 'images/index/elevator-4.webp' %}" alt="">
                     </li>
                     <li class="sm d-inline-flex align-items-center justify-content-center bg-white shadow rounded-circle">
-                        <img src="{% static 'images/b6.png' %}" alt="">
+                        <img src="{% static 'images/index/elevator-5.webp' %}" alt="">
                     </li>
                     <li class="md d-inline-flex align-items-center justify-content-center bg-white shadow rounded-circle">
-                        <img src="{% static 'images/b7.png' %}" alt="">
+                        <img src="{% static 'images/index/elevator-6.webp' %}" alt="">
                     </li>
                     <li class="md d-inline-flex align-items-center justify-content-center bg-white shadow rounded-circle">
-                        <img src="{% static 'images/b8.png' %}" alt="">
+                        <img src="{% static 'images/index/elevator-7.webp' %}" alt="">
                     </li>
                     <li class="xs d-inline-flex align-items-center justify-content-center bg-white shadow rounded-circle">
-                        <img src="{% static 'images/b9.png' %}" alt="">
+                        <img src="{% static 'images/index/elevator-8.webp' %}" alt="">
                     </li>
                 </ul>
             </div>
@@ -311,7 +311,7 @@
         <div class="row align-items-center">
             <div class="col-lg-8 col-md-7">
                 <div class="has-shapes">
-                    <img class="img-fluid py-4 my-2" src="{% static 'images/jerimoyahmah.png' %}" alt="jerimoyahmah">
+                    <img class="img-fluid py-4 my-2" src="{% static 'images/index/jerimoyahmah.webp' %}" alt="jerimoyahmah">
 
                 </div>
             </div>
@@ -352,8 +352,7 @@
             </div>
             <div class="col-lg-5 col-md-8 col-sm-10">
                 <div class="d-inline-block has-shadow shadow-right has-shapes">
-                    <img class="img-fluid rounded-sm" src="{% static 'images/a5.jpg' %}" alt="celestial_identity">
-   
+                    <img class="img-fluid rounded-lg" src="{% static 'images/index/oshoffa.webp' %}" alt="celestial-identity">
                 </div>
             </div>
         </div>
@@ -367,10 +366,10 @@
         <div class="row">
             <div class="col-md-12" data-aos="fade-left"> 
                 <div class="brand-carousel" style="margin: 20px;">
-                    
+
                     {% for birthday in birthdays %}
                         <div class="brand-item d-flex align-items-center justify-content-center">  
-                            <img class="img-fluid" src="data:image/png;base64,{{birthday.image}}" alt="" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
+                            <img class="img-fluid" src="data:image/webp;base64,{{birthday.image}}" alt="birthday" style="opacity: 1; -webkit-filter: grayscale(0); filter: grayscale(0); border-radius: 10px;"></div>
                     {% endfor %}
                     
                 </div>
@@ -405,7 +404,7 @@
                                     <h6 id="full-{{ testimony.id }}" style="display: none;">{{ testimony.testimony_content|safe|linebreaks }}<a href="javascript:void();" onclick="lessTestimony(event, '{{testimony.id}}')">Read less</a></h6>
                                 {% endif %}
                                 
-                                <img src="{% static 'images/testimonials/arrow.png' %}" alt="">
+                                <img src="{% static 'images/testimonials/arrow.png' %}" alt="testimony">
                                 <style>
                                     #read:hover{
                                         color: black !important;
