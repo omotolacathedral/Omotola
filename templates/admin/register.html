@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+    <!-- ** Plugins Needed for the Project ** -->    
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/slick/slick-theme.css' %}">
+    <link rel="stylesheet" href="{% static 'plugins/aos/aos.css' %}">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{% static 'images/admin/celestial-favicon.webp' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/admin/celestial-favicon.webp' %}" type="image/x-icon">
+</head>
+<body>
+
+    <div class="d-flex justify-content-center align-items-center signin-container" id="" style="width: 100%; height: 100vh;">
+        <div class="mx-auto" style="max-width:400px; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;">
+            <div class="p-3 p-sm-4 ">
+                <h2 class="text-center" style="margin-bottom: 50px;">Register</h2> 
+
+                {% for message in messages %}
+                    {% if message.tags != "success" %}
+        
+                        <div class="alert alert-danger alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{message}}
+                        </div>
+                    {% else %}
+        
+                        <div class="alert alert-{{message.tags}} alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>{{message}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                <form action="{% url 'register' %}" method="POST" class="needs-validation row" novalidate>
+                    {% csrf_token %}
+
+                    <!-- <div class="form-group mb-20 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="first_name">First Name*</label>
+                        <input class="form-control shadow-none" type="text" name="first_name" id="firstName" required>
+                        <p class="font-weight-bold invalid-feedback">Your firstname is required!</p>
+                    </div>
+                    <div class="form-group mb-20 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="last_name">Last Name*</label>
+                        <input class="form-control shadow-none" type="text" name="last_name" id="lastName" required>
+                        <p class="font-weight-bold invalid-feedback">Your lastname is required!</p>
+                    </div> -->
+                    <div class="form-group mb-20 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="username">Username*</label>
+                        <input class="form-control shadow-none" type="text" name="username" id="username" required>
+                        <p class="font-weight-bold invalid-feedback">Your username is required!</p>
+                    </div>
+                    <div class="form-group mb-15 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="email">Email Address*</label>
+                        <input class="form-control shadow-none" type="email" name="email" id="email" required>
+                        <p class="font-weight-bold invalid-feedback">Your email is required!</p>
+                    </div>
+                    <div class="form-group mb-15 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="passwordSignIn">Password*</label>
+                        <input class="form-control shadow-none" type="password" name="password" id="passwordSignIn" required>
+                        <p class="font-weight-bold invalid-feedback">Your password is required!</p>
+                    </div>
+                    <div class="form-group mb-20 col-12">
+                        <label class="text-black-200 h6 font-weight-600 mb-2" for="confirmPasswordSignIn">Confirm Password*</label>
+                        <input class="form-control shadow-none" type="password" name="confirm_password" id="confirmPasswordSignIn" required>
+                        <p class="font-weight-bold invalid-feedback">Re-type your password!</p>
+                    </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-primary w-100" type="submit">Sign Up</button>
+
+                        <p style="text-align: center; margin-top: 30px;">Do you have an account? <a href="{% url 'login' %}" id="signIn" style="color: #ff3158;">Sign In</a></p>
+                       
+                       <style>
+                            #signIn:hover{
+                                color: #000 !important;
+                            }
+                        </style>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Plugins Needed for the Project -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="{% static 'plugins/jQuery/jquery.min.js' %}"></script>
+    <script src="{% static 'plugins/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+    <script src="{% static 'plugins/shuffle/shuffle.min.js' %}"></script>
+    <script src="{% static 'plugins/aos/aos.js' %}"></script>
+
+    <!-- Main Script -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

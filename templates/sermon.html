@@ -39,7 +39,7 @@
             {% for excerpt in excerpts %}
                 <div class="col-lg-4 col-md-6 mb-40">
                     <div class="card border-0 h-100">
-                        <a class="d-flex flex-fill align-items-center" href="{% url 'sermon-excerpts-byId' excerpt.id %}"><img class="card-img-top rounded" src="data:image/jpg;base64,{{excerpt.sermoner_picture}}" width="50%" height="270px" alt="sermoner"></a>
+                        <a class="d-flex flex-fill align-items-center" href="{% url 'sermon-excerpts-byId' excerpt.id %}"><img class="card-img-top rounded" src="data:image/webp;base64,{{excerpt.sermoner_picture}}" width="50%" height="270px" alt="sermoner"></a>
                         <div class="p-25 pb-0">
                             <div class="post-category position-relative mb-15" id="service_type">
                                 <a class="text-black-200 font-weight-600" href="{% url 'sermon-excerpts-byId' excerpt.id %}">{{excerpt.service_type}}</a>

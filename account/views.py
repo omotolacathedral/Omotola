@@ -13,7 +13,7 @@ def adminAnnouncement(request):
     if len(session_keys) != 0:
         try:
             announcement = Announcement.objects.filter(is_removed=False)
-            return render(request, "admin_announcement.html", {"announcements": announcement})
+            return render(request, "admin/admin_announcement.html", {"announcements": announcement})
         
         except Exception as ex:
             print(ex)
@@ -43,7 +43,7 @@ def newAnnouncement(request):
                 return redirect("new-announcement")
                 
             else:
-                return render(request, "admin_new_announcement.html", {})
+                return render(request, "admin/admin_new_announcement.html", {})
         
         except Exception as ex:
             print(ex)
@@ -71,7 +71,7 @@ def updateAnnouncement(request, id):
 
             elif request.method=='GET':
                 announcement = Announcement.objects.get(pk = id)
-                return render(request, "admin_edit_announcement.html", {"announcement": announcement})
+                return render(request, "admin/admin_edit_announcement.html", {"announcement": announcement})
 
         except Exception as ex:
             print(ex)
@@ -106,7 +106,7 @@ def adminEvent(request):
     if len(session_keys) != 0:
         try:
             event = Event.objects.filter(is_removed=False)
-            return render(request, "admin_event.html", {"events": event})
+            return render(request, "admin/admin_event.html", {"events": event})
         
         except Exception as ex:
             print(ex)
@@ -137,7 +137,7 @@ def newEvent(request):
                 return redirect("new-event")
                 
             else:
-                return render(request, "admin_new_event.html", {})
+                return render(request, "admin/admin_new_event.html", {})
         
         except Exception as ex:
             print(ex)
@@ -166,7 +166,7 @@ def updateEvent(request, id):
 
             elif request.method=='GET':
                 event = Event.objects.get(pk = id)
-                return render(request, "admin_edit_event.html", {"event": event})
+                return render(request, "admin/admin_edit_event.html", {"event": event})
 
         except Exception as ex:
             print(ex)
@@ -201,7 +201,7 @@ def adminBirthday(request):
     if len(session_keys) != 0:
         try:
             birthday = Birthday.objects.filter(is_removed=False)             
-            return render(request, "admin_birthday.html", {"birthdays": birthday})
+            return render(request, "admin/admin_birthday.html", {"birthdays": birthday})
         
         except Exception as ex:
             print(ex)
@@ -231,7 +231,7 @@ def newBirthday(request):
                 return redirect("new-birthday")
             
             else:
-                return render(request, "admin_new_birthday.html", {})
+                return render(request, "admin/admin_new_birthday.html", {})
         
         except Exception as ex:
             print(ex)
@@ -259,7 +259,7 @@ def updateBirthday(request, id):
 
             elif request.method=='GET':
                 birthday = Birthday.objects.get(pk = id)
-                return render(request, "admin_edit_birthday.html", {"birthday": birthday})
+                return render(request, "admin/admin_edit_birthday.html", {"birthday": birthday})
 
         except Exception as ex:
             print(ex)
@@ -294,7 +294,7 @@ def adminTestimony(request):
     if len(session_keys) != 0:
         try:
             testimony = Testimony.objects.filter(is_removed=False).order_by("-date_created")
-            return render(request, "admin_testimonies.html", {"testimonys": testimony})
+            return render(request, "admin/admin_testimonies.html", {"testimonys": testimony})
         
         except Exception as ex:
             print(ex)
@@ -325,7 +325,7 @@ def newTestimony(request):
                 return redirect("new-testimony")
                 
             else:
-                return render(request, "admin_new_testimony.html", {})
+                return render(request, "admin/admin_new_testimony.html", {})
         
         except Exception as ex:
             print(ex)
@@ -354,7 +354,7 @@ def updateTestimony(request, id):
 
             elif request.method=='GET':
                 testimony = Testimony.objects.get(pk = id)
-                return render(request, "admin_edit_testimonies.html", {"testimony": testimony})
+                return render(request, "admin/admin_edit_testimonies.html", {"testimony": testimony})
 
         except Exception as ex:
             print(ex)
@@ -389,7 +389,7 @@ def adminOffice(request):
     if len(session_keys) != 0:
         try:
             office = Office.objects.filter(is_removed=False).order_by("date_created")
-            return render(request, "admin_office.html", {"offices": office})
+            return render(request, "admin/admin_office.html", {"offices": office})
         
         except Exception as ex:
             print(ex)
@@ -418,7 +418,7 @@ def newOffice(request):
                 return redirect("new-office")
                 
             else:
-                return render(request, "admin_new_office.html")
+                return render(request, "admin/admin_new_office.html")
         
         except Exception as ex:
             print(ex)
@@ -445,7 +445,7 @@ def updateOffice(request, id):
 
             elif request.method=='GET':
                 office = Office.objects.get(pk = id)
-                return render(request, "admin_edit_office.html", {"office": office})
+                return render(request, "admin/admin_edit_office.html", {"office": office})
 
         except Exception as ex:
             print(ex)
@@ -480,7 +480,7 @@ def adminTwelvePillar(request):
     if len(session_keys) != 0:
         try:
             twelvePillar = Team.objects.filter(is_removed=False).order_by("date_created")
-            return render(request, "admin_twelve_pillars.html", {"twelvePillars": twelvePillar})
+            return render(request, "admin/admin_twelve_pillars.html", {"twelvePillars": twelvePillar})
         
         except Exception as ex:
             print(ex)
@@ -525,7 +525,7 @@ def newTwelvePillar(request):
                 
             else:
                 office = Office.objects.filter(is_removed=False)
-                return render(request, "admin_new_twelve_pillars.html", {"offices": office})
+                return render(request, "admin/admin_new_twelve_pillars.html", {"offices": office})
         
         except Exception as ex:
             print(ex)
@@ -562,7 +562,7 @@ def updateTwelvePillar(request, id):
             elif request.method=='GET':
                 twelvePillar = Team.objects.get(pk = id)
                 office = Office.objects.filter(is_removed=False)
-                return render(request, "admin_edit_twelve_pillars.html", {"twelvePillar": twelvePillar, "offices": office})
+                return render(request, "admin/admin_edit_twelve_pillars.html", {"twelvePillar": twelvePillar, "offices": office})
 
         except Exception as ex:
             print(ex)
@@ -597,7 +597,7 @@ def adminSermonExcerpt(request):
     if len(session_keys) != 0:
         try:
             sermonExcerpt = Sermon.objects.filter(is_removed=False).order_by("-date_created")
-            return render(request, "admin_sermon_excerpt.html", {"sermonExcerpts": sermonExcerpt})
+            return render(request, "admin/admin_sermon_excerpt.html", {"sermonExcerpts": sermonExcerpt})
     
         except Exception as ex:
             print(ex)
@@ -636,7 +636,7 @@ def newSermonExcerpt(request):
                 return redirect("new-sermon-excerpt")
                 
             else:
-                return render(request, "admin_new_sermon_excerpt.html", {})
+                return render(request, "admin/admin_new_sermon_excerpt.html", {})
         
         except Exception as ex:
             print(ex)
@@ -673,7 +673,7 @@ def updateSermonExcerpt(request, id):
 
             elif request.method=='GET':
                 sermonExcerpt = Sermon.objects.get(pk = id)
-                return render(request, "admin_edit_sermon_excerpt.html", {"sermonExcerpt": sermonExcerpt})
+                return render(request, "admin/admin_edit_sermon_excerpt.html", {"sermonExcerpt": sermonExcerpt})
 
         except Exception as ex:
             print(ex)
@@ -742,7 +742,7 @@ def registerStaff(request):
                 return redirect("register") 
             
         elif request.method=='GET': 
-            return render(request, "register.html") 
+            return render(request, "admin/register.html") 
 
     except Exception as ex:
         print(ex)        
@@ -771,10 +771,10 @@ def loginStaff(request):
             
             else:
                 messages.error(request, 'Incorrect username or password')
-                return render(request, "login.html") 
+                return render(request, "admin/login.html") 
             
         elif request.method=='GET':
-            return render(request, "login.html") 
+            return render(request, "admin/login.html") 
         
     except Exception as ex:
         print(ex)
@@ -797,7 +797,7 @@ def getAllStaffs(request):
     if len(session_keys) != 0:
         try:
             staff = User.objects.filter(is_active=True)
-            return render(request, "admin_profiles.html", {"staffs": staff})
+            return render(request, "admin/admin_profiles.html", {"staffs": staff})
         
         except Exception as ex:
             print(ex)

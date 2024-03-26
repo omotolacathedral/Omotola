@@ -6,6 +6,12 @@
     <meta charset="utf-8">
     <title>Omotola Cathedral</title>
 
+    <!-- SEO -->
+    <meta name="keywords" content="Celestial Church of Christ, Omotola, Celestial Logo, Church, Christ, Cathedral, Parish, Evangelism, Prophet, Prophetic, Grace, Luli">
+    <meta name="description" content="Omotola is a church application that provide information on christendom and the life of Christ with the realities of the transformative power of grace">
+    <link rel="canonical" href="https://omotola.onrender.com">
+    <link rel="alternate" href="https://omotola.onrender.com" hreflang="x-default">
+
     <!-- mobile responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,8 +35,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!--Favicon-->
-    <link rel="shortcut icon" href="{% static 'images/celestial_favicon.png' %}" type="image/x-icon">
-    <link rel="icon" href="{% static 'images/celestial_favicon.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/base/celestial-favicon.webp' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'images/base/celestial-favicon.webp' %}" type="image/x-icon">
 </head>
 <body id="top" data-spy="scroll" data-target="#navbar-spy" class="position-relative">
 
@@ -38,7 +44,7 @@
     <div class="preloader position-fixed d-flex align-items-center justify-content-center">
         <div class="block">
             <div class="loader-image mb-20">
-                <img src="{% static 'images/celestial_preloader.png' %}" style="width: 70%; height: auto;" alt="celestial">
+                <img src="{% static 'images/base/celestial-preloader.webp' %}" style="width: 70%; height: auto;" alt="Celestial-logo">
             </div>
             <div class="loader-text text-uppercase">
                 <span class="mb-1">Welcome to</span>
@@ -53,7 +59,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-xl navbar-light px-0 navbar-fixed-top">
             <a class="navbar-brand p-0" id="logo" href="{% url 'home' %}" style="margin-right: 0px; min-width: 120px; max-width: 200px;">
-                <img class="img-fluid" id="cele_logo" src="{% static 'images/logo.png' %}" style="width: 50%; height: auto;" alt="celestial">
+                <img class="img-fluid" id="cele_logo" src="{% static 'images/base/celestial-logo.webp' %}" style="width: 50%; height: auto;" alt="Celestial-logo">
             </a>
             <!-- logo -->
 
@@ -113,6 +119,11 @@
 
 {% block content %}
 
+
+
+
+
+
 {% endblock %}
 
 <!-- start footer -->
@@ -142,7 +153,7 @@
         <div class="row pt-60 pb-60">
             <div class="col-lg-4 col-md-6">
                 <div class="pr-0 pr-lg-4">
-                    <a href="{% url 'home' %}"><img class="mb-25" src="{% static 'images/logo.png' %}" style="width: 40%; height: auto;" alt="omotola cathedral"></a>
+                    <a href="{% url 'home' %}"><img class="mb-25" src="{% static 'images/base/celestial-logo.webp' %}" style="width: 40%; height: auto;" alt="celestial-logo"></a>
                     <p style="padding-bottom: 30px;">
                         Join us in our journey of worship, service, and fellowship.
                         Together, let us illuminate the world with the light of God's grace - Matthew 5:14-16
@@ -202,7 +213,7 @@
                     <h4 class="font-weight-600 mb-20" style="visibility: hidden;">Social Links</h4>
                     <ul class="list-unstyled footer-links">
                         {% if event.service_display %}
-                    <li><a href="{{event.service_display}}">Watch Live Service</a></li>
+                        <li><a href="{{event.service_display}}">Watch Live Service</a></li>
                         {% else %}
                         <li>No Live Service</li>
                         {% endif %}                      
